@@ -667,6 +667,10 @@
    `(tabbar-selected ((,class (:inherit 'tabbar-default :background ,bg-alt :foreground ,fg :weight bold))))
    `(tabbar-selected-modified ((,class (:inherit 'tabbar-selected :foreground ,green))))
 
+   ;;transient
+   `(transient-heading ((,class (:inherit help-for-help-header))))
+   `(transient-key ((,class (:inherit help-key-binding))))
+
    ;; treemacs
    `(treemacs-root-face ((,class (:inherit 'font-lock-string-face))))
    `(treemacs-file-face ((,class (:foreground ,fg))))
