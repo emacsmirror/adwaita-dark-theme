@@ -668,8 +668,8 @@
    `(tabbar-selected-modified ((,class (:inherit 'tabbar-selected :foreground ,green))))
 
    ;; transient
-   `(transient-heading ((,class (:foreground base-8 :weight bold))))
-   `(transient-key ((,class (:inherit help-key-binding))))
+   `(transient-heading ((,class (:foreground ,base-8 :weight bold))))
+   `(transient-key ((,class (:inherit 'help-key-binding))))
    `(transient-argument ((,class (:inherit 'success))))
    `(transient-blue ((,class (:inherit 'transient-key :foreground ,blue))))
    `(transient-pink ((,class (:inherit 'transient-key :foreground ,pink))))
