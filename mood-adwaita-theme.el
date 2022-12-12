@@ -667,9 +667,15 @@
    `(tabbar-selected ((,class (:inherit 'tabbar-default :background ,bg-alt :foreground ,fg :weight bold))))
    `(tabbar-selected-modified ((,class (:inherit 'tabbar-selected :foreground ,green))))
 
-   ;;transient
-   `(transient-heading ((,class (:inherit help-for-help-header))))
+   ;; transient
+   `(transient-heading ((,class (:foreground base-8 :weight bold))))
    `(transient-key ((,class (:inherit help-key-binding))))
+   `(transient-argument ((,class (:inherit 'success))))
+   `(transient-blue ((,class (:inherit 'transient-key :foreground ,blue))))
+   `(transient-pink ((,class (:inherit 'transient-key :foreground ,pink))))
+   `(transient-purple ((,class (:inherit 'transient-key :foreground ,magenta))))
+   `(transient-red ((,class (:inherit 'transient-key :foreground ,red))))
+   `(transient-teal ((,class (:inherit 'transient-key :foreground ,teal))))
 
    ;; treemacs
    `(treemacs-root-face ((,class (:inherit 'font-lock-string-face))))
