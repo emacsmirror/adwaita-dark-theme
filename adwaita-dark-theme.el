@@ -1,4 +1,4 @@
-;;; adwaita-dark-theme.el --- A dark color scheme inspired by Adwaita. -*- lexical-binding: t; -*-
+;;; adwaita-dark-theme.el --- A dark color scheme inspired by Adwaita -*- lexical-binding: t; -*-
 
 ;; Author: Jessie Hildebrandt <jessieh.net>
 ;; Homepage: https://gitlab.com/jessieh/adwaita-dark-theme
