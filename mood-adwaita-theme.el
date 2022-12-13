@@ -170,7 +170,7 @@
    `(mode-line-emphasis ((,class (:foreground ,blue))))
    `(mode-line-highlight ((,class (:foreground ,fg))))
    `(mode-line-buffer-id ((,class (:foreground ,base-8 :weight bold))))
-   `(header-line ((,class (:inherit 'mode-line-inactive :foreground ,fg))))
+   `(header-line ((,class (:inherit 'mode-line-inactive))))
 
    ;; ===============================
    ;; -- Built-in packages/plugins --
