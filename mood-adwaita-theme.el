@@ -609,7 +609,7 @@
    `(magit-diffstat-removed ((,class (:foreground ,red))))
    `(magit-dimmed ((,class (:foreground ,base-5))))
    `(magit-hash ((,class (:foreground ,base-5))))
-   `(magit-header-line ((,class (:background ,dark-blue :foreground ,base-8 :weight bold :box (:line-width 3 :color ,dark-blue)))))
+   `(magit-header-line ((,class (:foreground ,base-8 :weight bold :box (:line-width ,mode-line-padding :color ,bg-alt)))))
    `(magit-log-author ((,class (:foreground ,orange))))
    `(magit-log-date ((,class (:foreground ,blue))))
    `(magit-log-graph ((,class (:foreground ,base-5))))
