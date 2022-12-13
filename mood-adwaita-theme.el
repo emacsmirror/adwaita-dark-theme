@@ -127,7 +127,7 @@
    `(highlight ((,class (:background ,blue :foreground ,base-0 :distant-foreground ,base-8))))
    `(cursor ((,class (:background ,fg))))
    `(shadow ((,class (:foreground ,base-5))))
-   `(minibuffer-prompt ((,class (:foreground ,blue))))
+   `(minibuffer-prompt ((,class (:foreground ,teal))))
    `(tooltip ((,class (:background ,base-3 :foreground ,fg))))
    `(secondary-selection ((,class (:background ,gray))))
    `(lazy-highlight ((,class (:background ,dark-blue :foreground ,base-8 :distant-foreground ,base-0 :weight bold))))
@@ -136,6 +136,8 @@
    `(nobreak-space ((,class (:inherit 'default :underline nil))))
    `(vertical-border ((,class (:background ,bg-alt :foreground ,bg-alt))))
    `(link ((,class (:foreground ,blue :underline t :weight bold))))
+   `(widget-single-line-field ((,class :background ,base-5)))
+   `(widget-field ((,class (:inherit 'widget-single-line-field :extend t))))
 
    ;; font-lock
    `(font-lock-builtin-face ((,class (:foreground ,violet))))
@@ -183,7 +185,7 @@
 
    ;; completions
    `(completions-annotations ((,class (:inherit 'shadow))))
-   `(completions-common-part ((,class (:foreground ,teal))))
+   `(completions-common-part ((,class (:foreground ,blue))))
 
    ;; custom
    `(custom-button ((,class (:background ,base-3 :foreground ,fg :box (:line-width 3 :color ,base-3)))))
@@ -395,9 +397,9 @@
    `(company-box-candidate ((,class (:foreground ,fg))))
 
    ;; corfu
-   `(corfu-default ((,class (:background ,base-3 :foreground ,fg))))
+   `(corfu-default ((,class (:background ,base-3 :foreground ,base-8))))
    `(corfu-current ((,class (:background ,base-4))))
-   `(corfu-bar ((,class (:background ,base-4))))
+   `(corfu-bar ((,class (:background ,base-5))))
    `(corfu-border ((,class (:background ,base-3))))
    `(corfu-echo ((,class (:inherit 'font-lock-doc-face))))
 
