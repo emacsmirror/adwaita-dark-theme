@@ -1,7 +1,7 @@
-;;; mood-adwaita-theme.el --- A dark color scheme inspired by Adwaita. -*- lexical-binding: t; -*-
+;;; adwaita-dark-theme.el --- A dark color scheme inspired by Adwaita. -*- lexical-binding: t; -*-
 
 ;; Author: Jessie Hildebrandt <jessieh.net>
-;; Homepage: https://gitlab.com/jessieh/mood-adwaita-theme
+;; Homepage: https://gitlab.com/jessieh/adwaita-dark-theme
 ;; Keywords: mode-line faces
 ;; Version: 1.0.0
 ;; Package-Requires: ((emacs "27.1"))
@@ -10,7 +10,7 @@
 
 ;;; Commentary:
 ;;
-;; mood-adwaita is a dark color scheme that aims to replicate the
+;; adwaita-dark is a dark color scheme that aims to replicate the
 ;; appearance and colors of GTK4 "libadwaita" applications.
 ;;
 ;; Features offered:
@@ -21,19 +21,19 @@
 ;; * Lightweight with no dependencies
 ;;
 ;; To replace default line continuation/line wrap fringe bitmaps:
-;; (mood-adwaita-theme-arrow-fringe-bmp-enable)
+;; (adwaita-dark-theme-arrow-fringe-bmp-enable)
 ;;
 ;; To enable custom configuration for `neotree':
-;; (eval-after-load 'neotree #'mood-adwaita-theme-neotree-configuration-enable)
+;; (eval-after-load 'neotree #'adwaita-dark-theme-neotree-configuration-enable)
 ;;
 ;; To enable custom fringe bitmaps for `diff-hl':
-;; (setq diff-hl-fringe-bmp-function #'mood-adwaita-theme-diff-hl-fringe-bmp-function)
+;; (setq diff-hl-fringe-bmp-function #'adwaita-dark-theme-diff-hl-fringe-bmp-function)
 ;;
 ;; To enable custom fringe bitmaps for `flycheck':
-;; (eval-after-load 'flycheck #'mood-adwaita-theme-flycheck-fringe-bmp-enable)
+;; (eval-after-load 'flycheck #'adwaita-dark-theme-flycheck-fringe-bmp-enable)
 ;;
 ;; To enable custom fringe bitmaps for `flymake':
-;; (eval-after-load 'flymake #'mood-adwaita-theme-flymake-fringe-bmp-enable)
+;; (eval-after-load 'flymake #'adwaita-dark-theme-flymake-fringe-bmp-enable)
 
 ;;; License:
 ;;
@@ -58,7 +58,7 @@
 ;; Helper functions
 ;;
 
-(defun mood-adwaita-theme--true-color-p ()
+(defun adwaita-dark-theme--true-color-p ()
   "Return 't' if the frame is capable of displaying true colors."
   (or
    (display-graphic-p)
@@ -68,7 +68,7 @@
 ;; Theme definition
 ;;
 
-(deftheme mood-adwaita
+(deftheme adwaita-dark
   "A dark color scheme inspired by the libadwaita colors.")
 
 (let ((class '((class color) (min-colors 256)))
@@ -82,39 +82,39 @@
 
       ;; Base (Background) Colors
       ;; [True color | 256-compatible]
-      (bg (if (mood-adwaita-theme--true-color-p) "#1e1e1e" "gray12"))     ;; #1f1f1f
-      (bg-alt (if (mood-adwaita-theme--true-color-p) "#242424" "gray14")) ;; #242424
-      (base-0 (if (mood-adwaita-theme--true-color-p) "#202020" "gray13")) ;; #212121
-      (base-1 (if (mood-adwaita-theme--true-color-p) "#262626" "gray15")) ;; #262626
-      (base-2 (if (mood-adwaita-theme--true-color-p) "#292929" "gray16")) ;; #292929
-      (base-3 (if (mood-adwaita-theme--true-color-p) "#303030" "gray19")) ;; #303030
-      (base-4 (if (mood-adwaita-theme--true-color-p) "#454545" "gray27")) ;; #454545
-      (base-5 (if (mood-adwaita-theme--true-color-p) "#656565" "gray40")) ;; #666666
-      (base-6 (if (mood-adwaita-theme--true-color-p) "#7b7b7b" "gray48")) ;; #7a7a7a
-      (base-7 (if (mood-adwaita-theme--true-color-p) "#a5a5a5" "gray65")) ;; #a6a6a6
-      (base-8 (if (mood-adwaita-theme--true-color-p) "#dfdfdf" "gray87")) ;; #dedede
-      (fg (if (mood-adwaita-theme--true-color-p) "#deddda" "gray86"))     ;; #dbdbdb
-      (fg-alt (if (mood-adwaita-theme--true-color-p) "#77767b" "gray47")) ;; #787878
+      (bg (if (adwaita-dark-theme--true-color-p) "#1e1e1e" "gray12"))     ;; #1f1f1f
+      (bg-alt (if (adwaita-dark-theme--true-color-p) "#242424" "gray14")) ;; #242424
+      (base-0 (if (adwaita-dark-theme--true-color-p) "#202020" "gray13")) ;; #212121
+      (base-1 (if (adwaita-dark-theme--true-color-p) "#262626" "gray15")) ;; #262626
+      (base-2 (if (adwaita-dark-theme--true-color-p) "#292929" "gray16")) ;; #292929
+      (base-3 (if (adwaita-dark-theme--true-color-p) "#303030" "gray19")) ;; #303030
+      (base-4 (if (adwaita-dark-theme--true-color-p) "#454545" "gray27")) ;; #454545
+      (base-5 (if (adwaita-dark-theme--true-color-p) "#656565" "gray40")) ;; #666666
+      (base-6 (if (adwaita-dark-theme--true-color-p) "#7b7b7b" "gray48")) ;; #7a7a7a
+      (base-7 (if (adwaita-dark-theme--true-color-p) "#a5a5a5" "gray65")) ;; #a6a6a6
+      (base-8 (if (adwaita-dark-theme--true-color-p) "#dfdfdf" "gray87")) ;; #dedede
+      (fg (if (adwaita-dark-theme--true-color-p) "#deddda" "gray86"))     ;; #dbdbdb
+      (fg-alt (if (adwaita-dark-theme--true-color-p) "#77767b" "gray47")) ;; #787878
 
       ;; Foreground Colors
       ;; [True color | 256-compatible]
-      (gray (if (mood-adwaita-theme--true-color-p) "#3d3846" "gray23"))           ;; #3b3b3b
-      (red (if (mood-adwaita-theme--true-color-p) "#ff6c6b" "indianred2"))        ;; #ee6363
-      (orange (if (mood-adwaita-theme--true-color-p) "#ffa348" "orange2"))        ;; #ee9a00
-      (green (if (mood-adwaita-theme--true-color-p) "#54d18c" "seagreen3"))       ;; #43cd80
-      (teal (if (mood-adwaita-theme--true-color-p) "#5bc8af" "mediumaquamarine")) ;; #66cdaa
-      (yellow (if (mood-adwaita-theme--true-color-p) "#f8e45c" "gold2"))          ;; #eec900
-      (blue (if (mood-adwaita-theme--true-color-p) "#64a6f4" "steelblue2"))       ;; #5cacee
-      (dark-blue (if (mood-adwaita-theme--true-color-p) "#1a5fb4" "dodgerblue4")) ;; #104e8b
-      (magenta (if (mood-adwaita-theme--true-color-p) "#dd80de" "orchid3"))       ;; #cd69c9
-      (pink (if (mood-adwaita-theme--true-color-p) "#edb8ee" "plum"))             ;; #dda0dd
-      (violet (if (mood-adwaita-theme--true-color-p) "#7d8ac7" "mediumpurple3"))  ;; #8968cd
-      (cyan (if (mood-adwaita-theme--true-color-p) "#7ee5ff" "mediumturquoise"))  ;; #48d1cc
-      (dark-cyan (if (mood-adwaita-theme--true-color-p) "#6bacbd" "cadetblue")))  ;; #5f9ea0
+      (gray (if (adwaita-dark-theme--true-color-p) "#3d3846" "gray23"))           ;; #3b3b3b
+      (red (if (adwaita-dark-theme--true-color-p) "#ff6c6b" "indianred2"))        ;; #ee6363
+      (orange (if (adwaita-dark-theme--true-color-p) "#ffa348" "orange2"))        ;; #ee9a00
+      (green (if (adwaita-dark-theme--true-color-p) "#54d18c" "seagreen3"))       ;; #43cd80
+      (teal (if (adwaita-dark-theme--true-color-p) "#5bc8af" "mediumaquamarine")) ;; #66cdaa
+      (yellow (if (adwaita-dark-theme--true-color-p) "#f8e45c" "gold2"))          ;; #eec900
+      (blue (if (adwaita-dark-theme--true-color-p) "#64a6f4" "steelblue2"))       ;; #5cacee
+      (dark-blue (if (adwaita-dark-theme--true-color-p) "#1a5fb4" "dodgerblue4")) ;; #104e8b
+      (magenta (if (adwaita-dark-theme--true-color-p) "#dd80de" "orchid3"))       ;; #cd69c9
+      (pink (if (adwaita-dark-theme--true-color-p) "#edb8ee" "plum"))             ;; #dda0dd
+      (violet (if (adwaita-dark-theme--true-color-p) "#7d8ac7" "mediumpurple3"))  ;; #8968cd
+      (cyan (if (adwaita-dark-theme--true-color-p) "#7ee5ff" "mediumturquoise"))  ;; #48d1cc
+      (dark-cyan (if (adwaita-dark-theme--true-color-p) "#6bacbd" "cadetblue")))  ;; #5f9ea0
 
   ;; Face Definitions
   (custom-theme-set-faces
-   'mood-adwaita
+   'adwaita-dark
 
    ;; ================
    ;; -- Core faces --
@@ -782,15 +782,15 @@
 ;; Neotree functions
 ;;
 
-(defun mood-adwaita-theme-neotree-hidden-dir-p (dirname)
+(defun adwaita-dark-theme-neotree-hidden-dir-p (dirname)
   (string-prefix-p "." dirname))
 
-(defun mood-adwaita-theme-neotree-hidden-file-p (filename)
+(defun adwaita-dark-theme-neotree-hidden-file-p (filename)
   (or (string-prefix-p "." filename)
       (and (string-prefix-p "#" filename)
            (string-suffix-p "#" filename))))
 
-(defun mood-adwaita-theme-neotree-insert-root (node)
+(defun adwaita-dark-theme-neotree-insert-root (node)
   (insert
    (concat
     " "
@@ -801,10 +801,10 @@
      (concat " " (or (neo-path--file-short-name node) "-") " \n")
      'face '(:inherit (neo-root-dir-face) :height 1.0)))))
 
-(defun mood-adwaita-theme-neotree-insert-dir (node depth expanded)
+(defun adwaita-dark-theme-neotree-insert-dir (node depth expanded)
   (let ((short-name (neo-path--file-short-name node))
         (face '(:inherit (neo-dir-link-face))))
-    (when (mood-adwaita-theme-neotree-hidden-dir-p short-name)
+    (when (adwaita-dark-theme-neotree-hidden-dir-p short-name)
       (setq face '(:inherit (shadow neo-dir-link-face))))
     (insert-char ?\s (* (- depth 1) 2))
     (insert (propertize
@@ -818,10 +818,10 @@
     (neo-buffer--node-list-set nil node)
     (neo-buffer--newline-and-begin)))
 
-(defun mood-adwaita-theme-neotree-insert-file (node depth)
+(defun adwaita-dark-theme-neotree-insert-file (node depth)
   (let ((short-name (neo-path--file-short-name node))
         (face '(:inherit (neo-file-link-face))))
-    (when (mood-adwaita-theme-neotree-hidden-file-p short-name)
+    (when (adwaita-dark-theme-neotree-hidden-file-p short-name)
       (setq face '(:inherit shadow neo-file-link-face)))
     (insert-char ?\s (* (- depth 1) 2))
     (insert (propertize "   " 'face face))
@@ -834,20 +834,20 @@
     (neo-buffer--newline-and-begin)))
 
 ;;;###autoload
-(defun mood-adwaita-theme-neotree-configuration-enable ()
-  "Enable custom mood-adwaita configuration for use with neotree."
+(defun adwaita-dark-theme-neotree-configuration-enable ()
+  "Enable custom adwaita-dark configuration for use with neotree."
   (progn
     (advice-add #'neo-global--select-window :after (lambda () (visual-line-mode 0) (set-window-fringes neo-global--window 0 0)))
-    (advice-add #'neo-buffer--insert-root-entry :override #'mood-adwaita-theme-neotree-insert-root)
-    (advice-add #'neo-buffer--insert-dir-entry :override #'mood-adwaita-theme-neotree-insert-dir)
-    (advice-add #'neo-buffer--insert-file-entry :override #'mood-adwaita-theme-neotree-insert-file)))
+    (advice-add #'neo-buffer--insert-root-entry :override #'adwaita-dark-theme-neotree-insert-root)
+    (advice-add #'neo-buffer--insert-dir-entry :override #'adwaita-dark-theme-neotree-insert-dir)
+    (advice-add #'neo-buffer--insert-file-entry :override #'adwaita-dark-theme-neotree-insert-file)))
 
 ;;
 ;; Fringe bitmap functions
 ;;
 
 ;; arrow fringe bitmaps
-(defconst mood-adwaita-theme--right-arrow-bmp
+(defconst adwaita-dark-theme--right-arrow-bmp
   (vector #b00000000
           #b00000000
           #b00110000
@@ -857,7 +857,7 @@
           #b00110000
           #b00000000)
   "Bitmap used to overwrite Emacs's right line-continuation fringe bitmap.")
-(defconst mood-adwaita-theme--left-arrow-bmp
+(defconst adwaita-dark-theme--left-arrow-bmp
   (vector #b00000000
           #b00000000
           #b00001100
@@ -867,7 +867,7 @@
           #b00001100
           #b00000000)
   "Bitmap used to overwrite Emacs's left line-continuation fringe bitmap.")
-(defconst mood-adwaita-theme--down-arrow-bmp
+(defconst adwaita-dark-theme--down-arrow-bmp
   (vector #b00000000
           #b00000000
           #b00000000
@@ -877,33 +877,33 @@
           #b00111100
           #b00011000)
   "Bitmap used to overwrite Emac's right line-wrapping fringe bitmap.")
-(defconst mood-adwaita-theme--empty-bmp
+(defconst adwaita-dark-theme--empty-bmp
   (vector #b0)
   "Bitmap used to overwrite Emac's left line-wrapping fringe bitmap.")
 
 ;;;###autoload
-(defun mood-adwaita-theme-arrow-fringe-bmp-enable ()
-  "Enable custom mood-adwaita fringe bitmaps to replace the default line continuation and line wrap arrows."
-  (define-fringe-bitmap 'right-arrow mood-adwaita-theme--right-arrow-bmp)
-  (define-fringe-bitmap 'left-arrow mood-adwaita-theme--left-arrow-bmp)
-  (define-fringe-bitmap 'right-curly-arrow mood-adwaita-theme--down-arrow-bmp)
-  (define-fringe-bitmap 'left-curly-arrow mood-adwaita-theme--empty-bmp))
+(defun adwaita-dark-theme-arrow-fringe-bmp-enable ()
+  "Enable custom adwaita-dark fringe bitmaps to replace the default line continuation and line wrap arrows."
+  (define-fringe-bitmap 'right-arrow adwaita-dark-theme--right-arrow-bmp)
+  (define-fringe-bitmap 'left-arrow adwaita-dark-theme--left-arrow-bmp)
+  (define-fringe-bitmap 'right-curly-arrow adwaita-dark-theme--down-arrow-bmp)
+  (define-fringe-bitmap 'left-curly-arrow adwaita-dark-theme--empty-bmp))
 
 ;; diff-hl fringe bitmap
-(defvar mood-adwaita-theme--diff-hl-bmp
-  (define-fringe-bitmap 'mood-adwaita-theme--diff-hl-bmp
+(defvar adwaita-dark-theme--diff-hl-bmp
+  (define-fringe-bitmap 'adwaita-dark-theme--diff-hl-bmp
     (vector #b11100000)
     1 8
     '(center t))
   "Fringe bitmap for use with `diff-hl'.")
 
 ;;;###autoload
-(defun mood-adwaita-theme-diff-hl-fringe-bmp-function (_type _pos)
+(defun adwaita-dark-theme-diff-hl-fringe-bmp-function (_type _pos)
   "Fringe bitmap function for use as `diff-hl-fringe-bmp-function'."
-  mood-adwaita-theme--diff-hl-bmp)
+  adwaita-dark-theme--diff-hl-bmp)
 
 ;; flycheck/flymake fringe bitmaps
-(define-fringe-bitmap 'mood-adwaita-theme--marker-bmp
+(define-fringe-bitmap 'adwaita-dark-theme--marker-bmp
   (vector #b11100000
           #b11110000
           #b11111000
@@ -911,24 +911,24 @@
           #b11111000
           #b11110000
           #b11100000))
-(defconst mood-adwaita-theme--dot-bmp
+(defconst adwaita-dark-theme--dot-bmp
   (vector #b01100000
           #b01100000)
   "Bitmap used to overwrite flycheck's continuation fringe bitmap.")
 
 ;;;###autoload
-(defun mood-adwaita-theme-flycheck-fringe-bmp-enable ()
-  "Enable custom mood-adwaita fringe bitmaps for use with flycheck."
-  (flycheck-redefine-standard-error-levels nil 'mood-adwaita-theme--marker-bmp)
-  (define-fringe-bitmap 'flycheck-fringe-bitmap-continuation mood-adwaita-theme--dot-bmp))
+(defun adwaita-dark-theme-flycheck-fringe-bmp-enable ()
+  "Enable custom adwaita-dark fringe bitmaps for use with flycheck."
+  (flycheck-redefine-standard-error-levels nil 'adwaita-dark-theme--marker-bmp)
+  (define-fringe-bitmap 'flycheck-fringe-bitmap-continuation adwaita-dark-theme--dot-bmp))
 
 ;;;###autoload
-(defun mood-adwaita-theme-flymake-fringe-bmp-enable ()
-  "Enable custom mood-adwaita fringe bitmaps for use with flymake."
+(defun adwaita-dark-theme-flymake-fringe-bmp-enable ()
+  "Enable custom adwaita-dark fringe bitmaps for use with flymake."
   (progn
-    (setq-default flymake-error-bitmap '(mood-adwaita-theme--marker-bmp compilation-error))
-    (setq-default flymake-warning-bitmap '(mood-adwaita-theme--marker-bmp compilation-warning))
-    (setq-default flymake-note-bitmap '(mood-adwaita-theme--marker-bmp compilation-info))))
+    (setq-default flymake-error-bitmap '(adwaita-dark-theme--marker-bmp compilation-error))
+    (setq-default flymake-warning-bitmap '(adwaita-dark-theme--marker-bmp compilation-warning))
+    (setq-default flymake-note-bitmap '(adwaita-dark-theme--marker-bmp compilation-info))))
 
 ;;
 ;; Register theme folder location
@@ -940,10 +940,10 @@
                (file-name-as-directory (file-name-directory load-file-name))))
 
 ;;
-;; Provide mood-adwaita-theme
+;; Provide adwaita-dark-theme
 ;;
 
-(provide-theme 'mood-adwaita)
-(provide 'mood-adwaita-theme)
+(provide-theme 'adwaita-dark)
+(provide 'adwaita-dark-theme)
 
-;;; mood-adwaita-theme.el ends here
+;;; adwaita-dark-theme.el ends here
