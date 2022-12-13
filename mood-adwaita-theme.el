@@ -641,6 +641,13 @@
    `(magit-tag ((,class (:foreground ,teal))))
    `(magit-filename ((,class (:foreground ,violet))))
    `(magit-section-secondary-heading ((,class (:foreground ,violet :weight bold))))
+   `(git-commit-summary ((,class (:foreground ,base-8 :weight bold))))
+   `(git-commit-overlong-summary ((,class (:inherit yellow :weight bold :strike-through t))))
+   `(git-commit-nonempty-second-line ((,class (:inherit yellow :strike-through t))))
+   `(git-commit-known-pseudo-header ((,class (:inherit 'git-commit-pseudo-header))))
+   `(git-commit-comment-heading ((,class (:foreground ,base-7))))
+   `(git-commit-comment-branch-local ((,class (:inherit 'magit-branch-local))))
+   `(git-commit-comment-branch-remote ((,class (:inherit 'magit-branch-remote))))
 
    ;; mic-paren
    `(paren-face-match ((,class (:inherit 'show-paren-match))))
