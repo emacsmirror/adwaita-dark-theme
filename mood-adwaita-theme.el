@@ -170,7 +170,7 @@
    `(mode-line-emphasis ((,class (:foreground ,blue))))
    `(mode-line-highlight ((,class (:foreground ,fg))))
    `(mode-line-buffer-id ((,class (:foreground ,base-8 :weight bold))))
-   `(header-line ((,class (:inherit 'mode-line-inactive))))
+   `(header-line ((,class (:inherit 'mode-line-inactive :foreground ,fg))))
 
    ;; ===============================
    ;; -- Built-in packages/plugins --
@@ -598,8 +598,8 @@
    ;; magit-diff-base-highlight
    ;; magit-diff-context
    ;; magit-diff-context-highlight
-   `(magit-diff-file-heading ((,class (:foreground ,fg :weight bold))))
-   `(magit-diff-file-heading-selection ((,class (:background ,dark-blue :foreground ,magenta :weight bold))))
+   `(magit-diff-file-heading ((,class (:foreground ,base-7 :weight bold))))
+   `(magit-diff-file-heading-selection ((,class (:foreground ,base-8 :weight bold))))
    ;; magit-magit-diff-hunk-heading
    `(magit-diff-hunk-heading-highlight ((,class (:background ,fg :foreground ,bg :weight bold))))
    ;; magit-diff-removed
@@ -609,9 +609,9 @@
    `(magit-diffstat-removed ((,class (:foreground ,red))))
    `(magit-dimmed ((,class (:foreground ,base-5))))
    `(magit-hash ((,class (:foreground ,base-5))))
-   `(magit-header-line ((,class (:foreground ,base-8 :weight bold :box (:line-width ,mode-line-padding :color ,bg-alt)))))
-   `(magit-log-author ((,class (:foreground ,orange))))
-   `(magit-log-date ((,class (:foreground ,blue))))
+   `(magit-header-line ((,class (:inherit 'header-line))))
+   `(magit-log-author ((,class (:foreground ,blue))))
+   `(magit-log-date ((,class (:foreground ,base-5))))
    `(magit-log-graph ((,class (:foreground ,base-5))))
    `(magit-process-ng ((,class (:inherit 'error))))
    `(magit-process-ok ((,class (:inherit 'success))))
