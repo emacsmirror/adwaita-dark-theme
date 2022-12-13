@@ -280,16 +280,16 @@
    `(elfeed-search-unread-title-face ((,class (:foreground ,fg :Weight bold))))
 
    ;; eshell
-   `(eshell-prompt ((,class (:foreground ,blue :weight bold))))
+   `(eshell-prompt ((,class (:foreground ,teal :weight bold))))
    `(eshell-ls-archive ((,class (:foreground ,magenta))))
-   `(eshell-ls-backup ((,class (:foreground ,yellow))))
-   `(eshell-ls-clutter ((,class (:foreground ,red))))
+   `(eshell-ls-backup ((,class (:foreground ,base-7))))
+   `(eshell-ls-clutter ((,class (:foreground ,base-5))))
    `(eshell-ls-directory ((,class (:foreground ,blue))))
    `(eshell-ls-executable ((,class (:foreground ,green))))
-   `(eshell-ls-missing ((,class (:foreground ,red))))
-   `(eshell-ls-product ((,class (:foreground ,orange))))
-   `(eshell-ls-readonly ((,class (:foreground ,orange))))
-   `(eshell-ls-special ((,class (:foreground ,violet))))
+   `(eshell-ls-missing ((,class (:foreground ,base-5))))
+   `(eshell-ls-product ((,class (:foreground ,teal))))
+   `(eshell-ls-readonly ((,class (:foreground ,violet))))
+   `(eshell-ls-special ((,class (:foreground ,magenta))))
    `(eshell-ls-symlink ((,class (:foreground ,cyan))))
    `(eshell-ls-unreadable ((,class (:foreground ,base-5))))
 
