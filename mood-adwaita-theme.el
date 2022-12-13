@@ -169,6 +169,25 @@
    ;; -- built-in packages/plugins --
    ;; ===============================
 
+   ;; ansi-colors
+   `(ansi-color-bold ((,class (:weight bold))))
+   `(ansi-color-black ((,class (:foreground "#464646" :background "#464646"))))
+   `(ansi-color-red ((,class (:foreground "#ed333b" :background "#ed333b"))))
+   `(ansi-color-green ((,class (:foreground "#57e389" :background "#57e389"))))
+   `(ansi-color-yellow ((,class (:foreground "#ff7800" :background "#ff7800"))))
+   `(ansi-color-blue ((,class (:foreground "#62a0ea" :background "#62a0ea"))))
+   `(ansi-color-magenta ((,class (:foreground "#9141ac" :background "#9141ac"))))
+   `(ansi-color-cyan ((,class (:foreground "#5bc8af" :background "#5bc8af"))))
+   `(ansi-color-white ((,class (:foreground "#deddda" :background "#deddda"))))
+   `(ansi-color-bright-black ((,class (:foreground "#9a9996" :background "#9a9996"))))
+   `(ansi-color-bright-red ((,class (:foreground "#f66151" :background "#f66151"))))
+   `(ansi-color-bright-green ((,class (:foreground "#8ff0a4" :background "#8ff0a4"))))
+   `(ansi-color-bright-yellow ((,class (:foreground "#ffa348" :background "#ffa348"))))
+   `(ansi-color-bright-blue ((,class (:foreground "#99c1f1" :background "#99c1f1"))))
+   `(ansi-color-bright-magenta ((,class (:foreground "#dc8add" :background "#dc8add"))))
+   `(ansi-color-bright-cyan ((,class (:foreground "#93ddc2" :background "#93ddc2"))))
+   `(ansi-color-bright-white ((,class (:foreground "#f6f5f4" :background "#f6f5f4"))))
+
    ;; cperl
    `(cperl-array-face ((,class (:inherit 'font-lock-variable-name-face :weight bold))))
    `(cperl-hash-face ((,class (:inherit 'font-lock-variable-name-face :weight bold :slant italic))))
@@ -348,14 +367,22 @@
    ;; term
    `(term ((,class (:foreground ,fg))))
    `(term-bold ((,class (:weight bold))))
-   `(term-color-black ((,class (:background ,base-0 :foreground ,base-0))))
-   `(term-color-red ((,class (:background ,red :foreground ,red))))
-   `(term-color-green ((,class (:background ,green :foreground ,green))))
-   `(term-color-yellow ((,class (:background ,yellow :foreground ,yellow))))
-   `(term-color-blue ((,class (:background ,blue :foreground ,blue))))
-   `(term-color-magenta ((,class (:background ,magenta :foreground ,magenta))))
-   `(term-color-cyan ((,class (:background ,cyan :foreground ,cyan))))
-   `(term-color-white ((,class (:background ,base-8 :foreground ,base-8))))
+   `(term-color-black ((,class (:foreground "#464646" :background "#464646"))))
+   `(term-color-red ((,class (:foreground "#ed333b" :background "#ed333b"))))
+   `(term-color-green ((,class (:foreground "#57e389" :background "#57e389"))))
+   `(term-color-yellow ((,class (:foreground "#ff7800" :background "#ff7800"))))
+   `(term-color-blue ((,class (:foreground "#62a0ea" :background "#62a0ea"))))
+   `(term-color-magenta ((,class (:foreground "#9141ac" :background "#9141ac"))))
+   `(term-color-cyan ((,class (:foreground "#5bc8af" :background "#5bc8af"))))
+   `(term-color-white ((,class (:foreground "#deddda" :background "#deddda"))))
+   `(term-color-bright-black ((,class (:foreground "#9a9996" :background "#9a9996"))))
+   `(term-color-bright-red ((,class (:foreground "#f66151" :background "#f66151"))))
+   `(term-color-bright-green ((,class (:foreground "#8ff0a4" :background "#8ff0a4"))))
+   `(term-color-bright-yellow ((,class (:foreground "#ffa348" :background "#ffa348"))))
+   `(term-color-bright-blue ((,class (:foreground "#99c1f1" :background "#99c1f1"))))
+   `(term-color-bright-magenta ((,class (:foreground "#dc8add" :background "#dc8add"))))
+   `(term-color-bright-cyan ((,class (:foreground "#93ddc2" :background "#93ddc2"))))
+   `(term-color-bright-white ((,class (:foreground "#f6f5f4" :background "#f6f5f4"))))
 
    ;; window-divider
    `(window-divider ((,class (:inherit 'vertical-border))))
