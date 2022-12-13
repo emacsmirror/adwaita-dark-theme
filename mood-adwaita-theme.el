@@ -347,6 +347,16 @@
    `(message-mml ((,class (:foreground ,base-5 :slant italic))))
    `(message-cited-text ((,class (:foreground ,magenta))))
 
+   ;; outline
+   `(outline-1 ((,class (:foreground ,base-6 :weight bold))))
+   `(outline-2 ((,class (:foreground ,base-7 :weight bold))))
+   `(outline-3 ((,class (:foreground ,base-6 :weight bold))))
+   `(outline-4 ((,class (:foreground ,base-5 :weight bold))))
+   `(outline-5 ((,class (:foreground ,base-6 :weight bold))))
+   `(outline-6 ((,class (:foreground ,base-7 :weight bold))))
+   `(outline-7 ((,class (:foreground ,base-6 :weight bold))))
+   `(outline-8 ((,class (:foreground ,base-5 :weight bold))))
+
    ;; pulse
    `(pulse-highlight-start-face ((,class (:background ,base-5 :extend t))))
 
