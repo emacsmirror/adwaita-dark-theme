@@ -651,7 +651,7 @@
    `(mood-line-status-info ((,class (:foreground ,teal))))
 
    ;; multiple-cursors
-   `(mc/cursor-face ((,class (:inherit 'cursor))))
+   `(mc/cursor-face ((,class (:inherit 'cursor :background ,fg-alt))))
 
    ;; nav-flash
    `(nav-flash-face ((,class (:background ,dark-blue :foreground ,base-8 :weight bold))))
