@@ -415,6 +415,10 @@
    `(avy-lead-face-1 ((,class (:inherit 'avy-lead-face))))
    `(avy-lead-face-2 ((,class (:inherit 'avy-lead-face))))
 
+   ;; bufler
+   `(bufler-path ((,class (:inherit 'font-lock-string-face))))
+   `(bufler-buffer-special ((,class (:inherit 'font-lock-builtin-face))))
+
    ;; company
    `(company-tooltip ((,class (:inherit 'tooltip))))
    `(company-tooltip-common ((,class (:foreground ,blue :distant-foreground ,base-0 :weight bold))))
@@ -635,6 +639,9 @@
    `(paren-face-match ((,class (:inherit 'show-paren-match))))
    `(paren-face-mismatch ((,class (:inherit 'show-paren-mismatch))))
    `(paren-face-no-match ((,class (:inherit 'show-paren-mismatch))))
+
+   ;; mood-line
+   `(mood-line-status-info ((,class (:foreground ,teal))))
 
    ;; multiple-cursors
    `(mc/cursor-face ((,class (:inherit 'cursor))))
