@@ -4,7 +4,7 @@
 ;; Homepage: https://gitlab.com/jessieh/mood-adwaita-theme
 ;; Keywords: mode-line faces
 ;; Version: 1.0.0
-;; Package-Requires: ((emacs "24.4"))
+;; Package-Requires: ((emacs "27.1"))
 
 ;; This file is not part of GNU Emacs.
 
@@ -15,6 +15,7 @@
 ;;
 ;; Features offered:
 ;; * Beautiful dark color scheme inspired by Adwaita
+;; * Automatic 256-color mode support
 ;; * Custom fringe bitmaps for line continuations, visual-line-mode, diff-hl, flycheck, and flymake
 ;; * Custom configuration for neotree
 ;; * Lightweight with no dependencies
@@ -54,13 +55,6 @@
 ;;; Code:
 
 ;;
-;; Theme definition
-;;
-
-(deftheme mood-adwaita
-  "A dark color scheme inspired by the libadwaita colors.")
-
-;;
 ;; Helper functions
 ;;
 
@@ -71,10 +65,17 @@
    (>= (tty-display-color-cells) 16777216)))
 
 ;;
-;; Color definitions
+;; Theme definition
 ;;
 
+(deftheme mood-adwaita
+  "A dark color scheme inspired by the libadwaita colors.")
+
 (let ((class '((class color) (min-colors 256)))
+
+      ;; =====================
+      ;; -- Theme variables --
+      ;; =====================
 
       ;; Layout/Sizing
       (mode-line-padding 10)
@@ -112,6 +113,10 @@
   ;; Face Definitions
   (custom-theme-set-faces
    'mood-adwaita
+
+   ;; ================
+   ;; -- Core faces --
+   ;; ================
 
    ;; default face
    `(default ((,class (:background ,bg :foreground ,fg))))
@@ -166,7 +171,7 @@
    `(header-line ((,class (:inherit 'mode-line-inactive))))
 
    ;; ===============================
-   ;; -- built-in packages/plugins --
+   ;; -- Built-in packages/plugins --
    ;; ===============================
 
    ;; ansi-colors
@@ -400,7 +405,7 @@
    `(window-divider-last-pixel ((,class (:inherit 'window-divider))))
 
    ;; ===============================
-   ;; -- external packages/plugins --
+   ;; -- External packages/plugins --
    ;; ===============================
 
    ;; anzu
