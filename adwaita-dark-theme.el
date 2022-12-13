@@ -55,6 +55,28 @@
 ;;; Code:
 
 ;;
+;; Ext. variable declarations
+;;
+
+(defvar neotree-dir-button-keymap)
+(defvar neotree-file-button-keymap)
+(defvar neo-global--window)
+
+;;
+;; Ext. function prototypes
+;;
+
+(declare-function neo-path--file-short-name "neotree" (file))
+(declare-function neo-buffer--node-list-set "neotree" (line-num path))
+(declare-function neo-buffer--newline-and-begin "neotree" ())
+(declare-function neo-global--select-window "neotree" ())
+(declare-function neo-buffer--insert-root-entry "neotree" (node))
+(declare-function neo-buffer--insert-dir-entry "neotree" (node depth expanded))
+(declare-function neo-buffer--insert-file-entry "neotree" (node depth))
+
+(declare-function flycheck-redefine-standard-error-levels "flycheck" (&optional margin-str fringe-bitmap))
+
+;;
 ;; Helper functions
 ;;
 
@@ -782,15 +804,18 @@
 ;; Neotree functions
 ;;
 
-(defun adwaita-dark-theme-neotree-hidden-dir-p (dirname)
+(defun adwaita-dark-theme--neotree-hidden-dir-p (dirname)
+  "Return non-nil if DIRNAME should be considered hidden."
   (string-prefix-p "." dirname))
 
-(defun adwaita-dark-theme-neotree-hidden-file-p (filename)
+(defun adwaita-dark-theme--neotree-hidden-file-p (filename)
+  "Return non-nil if FILENAME should be considered hidden."
   (or (string-prefix-p "." filename)
       (and (string-prefix-p "#" filename)
            (string-suffix-p "#" filename))))
 
-(defun adwaita-dark-theme-neotree-insert-root (node)
+(defun adwaita-dark-theme--neotree-insert-root (node)
+  "Insert root directory NODE at point."
   (insert
    (concat
     " "
@@ -801,10 +826,11 @@
      (concat " " (or (neo-path--file-short-name node) "-") " \n")
      'face '(:inherit (neo-root-dir-face) :height 1.0)))))
 
-(defun adwaita-dark-theme-neotree-insert-dir (node depth expanded)
+(defun adwaita-dark-theme--neotree-insert-dir (node depth expanded)
+  "Insert directory NODE with indentation level DEPTH and state EXPANDED at point."
   (let ((short-name (neo-path--file-short-name node))
         (face '(:inherit (neo-dir-link-face))))
-    (when (adwaita-dark-theme-neotree-hidden-dir-p short-name)
+    (when (adwaita-dark-theme--neotree-hidden-dir-p short-name)
       (setq face '(:inherit (shadow neo-dir-link-face))))
     (insert-char ?\s (* (- depth 1) 2))
     (insert (propertize
@@ -818,10 +844,11 @@
     (neo-buffer--node-list-set nil node)
     (neo-buffer--newline-and-begin)))
 
-(defun adwaita-dark-theme-neotree-insert-file (node depth)
+(defun adwaita-dark-theme--neotree-insert-file (node depth)
+  "Insert file NODE with indentation level DEPTH at point."
   (let ((short-name (neo-path--file-short-name node))
         (face '(:inherit (neo-file-link-face))))
-    (when (adwaita-dark-theme-neotree-hidden-file-p short-name)
+    (when (adwaita-dark-theme--neotree-hidden-file-p short-name)
       (setq face '(:inherit shadow neo-file-link-face)))
     (insert-char ?\s (* (- depth 1) 2))
     (insert (propertize "   " 'face face))
@@ -838,9 +865,9 @@
   "Enable custom adwaita-dark configuration for use with neotree."
   (progn
     (advice-add #'neo-global--select-window :after (lambda () (visual-line-mode 0) (set-window-fringes neo-global--window 0 0)))
-    (advice-add #'neo-buffer--insert-root-entry :override #'adwaita-dark-theme-neotree-insert-root)
-    (advice-add #'neo-buffer--insert-dir-entry :override #'adwaita-dark-theme-neotree-insert-dir)
-    (advice-add #'neo-buffer--insert-file-entry :override #'adwaita-dark-theme-neotree-insert-file)))
+    (advice-add #'neo-buffer--insert-root-entry :override #'adwaita-dark-theme--neotree-insert-root)
+    (advice-add #'neo-buffer--insert-dir-entry :override #'adwaita-dark-theme--neotree-insert-dir)
+    (advice-add #'neo-buffer--insert-file-entry :override #'adwaita-dark-theme--neotree-insert-file)))
 
 ;;
 ;; Fringe bitmap functions
@@ -883,7 +910,7 @@
 
 ;;;###autoload
 (defun adwaita-dark-theme-arrow-fringe-bmp-enable ()
-  "Enable custom adwaita-dark fringe bitmaps to replace the default line continuation and line wrap arrows."
+  "Replace the default line continuation and line wrap arrows with custom bitmaps."
   (define-fringe-bitmap 'right-arrow adwaita-dark-theme--right-arrow-bmp)
   (define-fringe-bitmap 'left-arrow adwaita-dark-theme--left-arrow-bmp)
   (define-fringe-bitmap 'right-curly-arrow adwaita-dark-theme--down-arrow-bmp)
