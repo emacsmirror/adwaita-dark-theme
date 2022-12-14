@@ -94,6 +94,7 @@
   "A dark color scheme inspired by the libadwaita colors.")
 
 (let ((class '((class color) (min-colors 256)))
+      (flat-button-available-p (version<= "28.1" emacs-version))
 
       ;; =====================
       ;; -- Theme variables --
@@ -614,26 +615,23 @@
    `(magit-bisect-bad ((,class (:foreground ,red))))
    `(magit-bisect-good ((,class (:foreground ,green))))
    `(magit-bisect-skip ((,class (:foreground ,orange))))
-   `(magit-blame-date ((,class (:foreground ,red))))
-   `(magit-blame-heading ((,class (:background ,base-3 :foreground ,orange))))
-   `(magit-branch-current ((,class (:foreground ,cyan))))
+   `(magit-blame-date ((,class (:foreground ,blue))))
+   `(magit-blame-heading ((,class (:foreground ,base-7 :underline (:color ,base-3) :extend t :box ,(when flat-button-available-p '(:line-width 4 :style flat-button))))))
+   `(magit-branch-current ((,class (:foreground ,orange))))
    `(magit-branch-local ((,class (:foreground ,blue))))
-   `(magit-branch-remote ((,class (:foreground ,green))))
+   `(magit-branch-remote ((,class (:foreground ,blue))))
    `(magit-cherry-equivalent ((,class (:foreground ,violet))))
    `(magit-cherry-unmatched ((,class (:foreground ,cyan))))
-   ;; magit-diff-added
-   ;; magit-diff-added-highlight
-   ;; magit-diff-base
-   ;; magit-diff-base-highlight
-   ;; magit-diff-context
-   ;; magit-diff-context-highlight
-   `(magit-diff-file-heading ((,class (:foreground ,base-7 :weight bold))))
-   `(magit-diff-file-heading-selection ((,class (:foreground ,base-8 :weight bold))))
-   ;; magit-magit-diff-hunk-heading
-   `(magit-diff-hunk-heading-highlight ((,class (:background ,fg :foreground ,bg :weight bold))))
-   ;; magit-diff-removed
-   ;; magit-diff-removed-highlight
-   `(magit-diff-lines-heading ((,class (:background ,red :foreground ,yellow))))
+   `(magit-diff-context ((,class (:foreground ,fg-alt))))
+   `(magit-diff-context-highlight ((,class (:inherit 'hl-line :foreground ,base-6))))
+   `(magit-diff-file-heading ((,class (:foreground ,fg :extend t :box ,(when flat-button-available-p '(:line-width 4 :style flat-button))))))
+   `(magit-diff-file-heading-highlight ((,class (:inherit 'hl-line))))
+   `(magit-diff-file-heading-selection ((,class (:inherit 'hl-line :foreground ,blue :weight bold))))
+   `(magit-diff-hunk-heading ((,class (:background ,base-3 :foreground ,base-7 :extend t :box ,(when flat-button-available-p '(:line-width 1 :style flat-button))))))
+   `(magit-diff-hunk-heading-highlight ((,class (:background ,base-4 :foreground ,fg))))
+   `(magit-diff-hunk-heading-selection ((,class (:background ,base-4 :foreground ,blue :weight bold))))
+   `(magit-diff-lines-boundary ((,class (:background ,blue))))
+   `(magit-diff-lines-heading ((,class (:inherit 'magit-diff-hunk-heading-highlight))))
    `(magit-diffstat-added ((,class (:foreground ,green))))
    `(magit-diffstat-removed ((,class (:foreground ,red))))
    `(magit-dimmed ((,class (:foreground ,base-5))))
