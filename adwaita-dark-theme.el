@@ -156,7 +156,7 @@
    `(highlight ((,class (:background ,blue :foreground ,base-0 :distant-foreground ,base-8))))
    `(cursor ((,class (:background ,fg))))
    `(shadow ((,class (:foreground ,base-5))))
-   `(minibuffer-prompt ((,class (:foreground ,teal))))
+   `(minibuffer-prompt ((,class (:foreground ,base-7))))
    `(tooltip ((,class (:background ,base-3 :foreground ,fg))))
    `(secondary-selection ((,class (:background ,gray))))
    `(lazy-highlight ((,class (:background ,dark-blue :foreground ,base-8 :distant-foreground ,base-0 :weight bold))))
@@ -221,6 +221,9 @@
    `(cperl-array-face ((,class (:inherit 'font-lock-variable-name-face :weight bold))))
    `(cperl-hash-face ((,class (:inherit 'font-lock-variable-name-face :weight bold :slant italic))))
    `(cperl-nonoverridable-face ((,class (:inherit 'font-lock-builtin-face))))
+
+   ;; consult
+   `(consult-line-number-wrapped ((,class (:foreground ,base-7))))
 
    ;; compilation
    `(compilation-column-number ((,class (:inherit 'font-lock-comment-face))))
@@ -327,7 +330,7 @@
    `(breakpoint-disabled ((,class (:foreground ,base-5))))
 
    ;; help
-   `(help-key-binding ((,class (:foreground ,pink))))
+   `(help-key-binding ((,class (:foreground ,blue))))
 
    ;; hi-lock
    `(hi-yellow ((,class (:foreground ,yellow :inverse-video t))))
