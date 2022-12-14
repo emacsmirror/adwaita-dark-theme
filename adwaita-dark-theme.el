@@ -665,7 +665,7 @@
    `(magit-signature-good ((,class (:inherit 'success))))
    `(magit-signature-revoked ((,class (:foreground ,magenta))))
    `(magit-signature-untrusted ((,class (:foreground ,yellow))))
-   `(magit-tag ((,class (:foreground ,teal))))
+   `(magit-tag ((,class (:foreground ,fg-alt))))
    `(magit-filename ((,class (:foreground ,violet))))
    `(magit-section-secondary-heading ((,class (:foreground ,violet :weight bold))))
    `(git-commit-summary ((,class (:foreground ,base-8 :weight bold))))
