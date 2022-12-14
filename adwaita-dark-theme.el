@@ -393,15 +393,17 @@
    `(show-paren-match ((,class (:foreground ,fg :weight ultra-bold))))
    `(show-paren-mismatch ((,class (:foreground ,red :weight ultra-bold))))
 
-   ;; tab-line/tab-bar
+   ;; tab-line
    `(tab-line ((,class (:background ,bg-alt))))
    `(tab-line-tab ((,class (:background ,bg :foreground ,fg :box (:line-width ,mode-line-padding :color ,bg)))))
    `(tab-line-tab-inactive ((,class (:background ,bg-alt :foreground ,fg-alt :box (:line-width ,mode-line-padding :color ,bg-alt)))))
    `(tab-line-tab-current ((,class (:inherit 'tab-line-tab))))
    `(tab-line-highlight ((,class (:inherit 'tab-line-tab))))
-   `(tab-bar ((,class (:inherit 'tab-line))))
-   `(tab-bar-tab ((,class (:inherit 'tab-line-tab))))
-   `(tab-bar-tab-inactive ((,class (:inherit 'tab-line-tab-inactive))))
+
+   ;; tab-bar
+   `(tab-bar ((,class (:background ,bg-alt))))
+   `(tab-bar-tab ((,class (:background ,bg :foreground ,fg :box (:line-width ,mode-line-padding :color ,bg)))))
+   `(tab-bar-tab-inactive ((,class (:background ,bg-alt :foreground ,fg-alt :box (:line-width ,mode-line-padding :color ,bg-alt)))))
 
    ;; term
    `(term ((,class (:foreground ,fg))))
