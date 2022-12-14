@@ -491,6 +491,8 @@
    `(flycheck-warning ((,class (:underline (:color ,yellow)))))
    `(flycheck-info ((,class (:underline (:color ,green)))))
    `(flycheck-error-list-highlight ((,class (:inherit hl-line :weight bold))))
+   `(flycheck-error-list-id-with-explainer ((,class (:inherit (flycheck-error-list-id button)))))
+   `(flycheck-verify-select-checker ((,class (:inherit 'button))))
 
    ;; flycheck-posframe
    `(flycheck-posframe-face ((,class (:inherit 'default))))
