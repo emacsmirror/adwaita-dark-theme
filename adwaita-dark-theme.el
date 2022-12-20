@@ -140,7 +140,6 @@
        (cyan (if true-color-available-p "#7ee5ff" "mediumturquoise"))  ; #48d1cc
        (dark-cyan (if true-color-available-p "#6bacbd" "cadetblue")))  ; #5f9ea0
 
-
   (custom-theme-set-faces
    'adwaita-dark
 
