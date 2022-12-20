@@ -705,9 +705,9 @@
    `(rainbow-delimiters-depth-2-face ((,class (:foreground ,magenta))))
    `(rainbow-delimiters-depth-3-face ((,class (:foreground ,green))))
    `(rainbow-delimiters-depth-4-face ((,class (:foreground ,orange))))
-   `(rainbow-delimiters-depth-5-face ((,class (:foreground ,violet))))
-   `(rainbow-delimiters-depth-6-face ((,class (:foreground ,yellow))))
-   `(rainbow-delimiters-depth-7-face ((,class (:foreground ,teal))))
+   `(rainbow-delimiters-depth-5-face ((,class (:foreground ,yellow))))
+   `(rainbow-delimiters-depth-6-face ((,class (:foreground ,teal))))
+   `(rainbow-delimiters-depth-7-face ((,class (:foreground ,violet))))
    `(rainbow-delimiters-unmatched-face ((,class (:foreground ,red :weight ultra-bold))))
    `(rainbow-delimiters-mismatched-face ((,class (:inherit 'rainbow-delimiters-unmatched-face))))
 
