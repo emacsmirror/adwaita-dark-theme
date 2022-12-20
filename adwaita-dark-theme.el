@@ -201,7 +201,6 @@
    ;; ===============================
 
    ;; ansi-colors
-   `(ansi-color-bold ((,class (:weight bold))))
    `(ansi-color-black ((,class (:foreground "#464646" :background "#464646"))))
    `(ansi-color-red ((,class (:foreground "#ed333b" :background "#ed333b"))))
    `(ansi-color-green ((,class (:foreground "#57e389" :background "#57e389"))))
@@ -409,26 +408,6 @@
    `(tab-bar ((,class (:background ,bg-alt))))
    `(tab-bar-tab ((,class (:background ,bg :foreground ,fg :box (:line-width ,mode-line-padding :color ,bg)))))
    `(tab-bar-tab-inactive ((,class (:background ,bg-alt :foreground ,fg-alt :box (:line-width ,mode-line-padding :color ,bg-alt)))))
-
-   ;; term
-   `(term ((,class (:foreground ,fg))))
-   `(term-bold ((,class (:weight bold))))
-   `(term-color-black ((,class (:foreground "#464646" :background "#464646"))))
-   `(term-color-red ((,class (:foreground "#ed333b" :background "#ed333b"))))
-   `(term-color-green ((,class (:foreground "#57e389" :background "#57e389"))))
-   `(term-color-yellow ((,class (:foreground "#ff7800" :background "#ff7800"))))
-   `(term-color-blue ((,class (:foreground "#62a0ea" :background "#62a0ea"))))
-   `(term-color-magenta ((,class (:foreground "#9141ac" :background "#9141ac"))))
-   `(term-color-cyan ((,class (:foreground "#5bc8af" :background "#5bc8af"))))
-   `(term-color-white ((,class (:foreground "#deddda" :background "#deddda"))))
-   `(term-color-bright-black ((,class (:foreground "#9a9996" :background "#9a9996"))))
-   `(term-color-bright-red ((,class (:foreground "#f66151" :background "#f66151"))))
-   `(term-color-bright-green ((,class (:foreground "#8ff0a4" :background "#8ff0a4"))))
-   `(term-color-bright-yellow ((,class (:foreground "#ffa348" :background "#ffa348"))))
-   `(term-color-bright-blue ((,class (:foreground "#99c1f1" :background "#99c1f1"))))
-   `(term-color-bright-magenta ((,class (:foreground "#dc8add" :background "#dc8add"))))
-   `(term-color-bright-cyan ((,class (:foreground "#93ddc2" :background "#93ddc2"))))
-   `(term-color-bright-white ((,class (:foreground "#f6f5f4" :background "#f6f5f4"))))
 
    ;; window-divider
    `(window-divider ((,class (:inherit 'vertical-border))))
