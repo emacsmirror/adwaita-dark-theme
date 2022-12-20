@@ -164,6 +164,7 @@
    `(tooltip ((,class (:background ,base-3 :foreground ,fg))))
    `(secondary-selection ((,class (:background ,gray))))
    `(lazy-highlight ((,class (:background ,dark-blue :foreground ,base-8 :distant-foreground ,base-0 :weight bold))))
+   `(fill-column-indicator ((,class (:foreground ,base-3))))
    `(match ((,class (:background ,base-0 :foreground ,green :weight bold))))
    `(trailing-whitespace ((,class (:background ,red))))
    `(nobreak-space ((,class (:inherit 'default :underline nil))))
