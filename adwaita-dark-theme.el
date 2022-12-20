@@ -83,6 +83,7 @@
 (defun adwaita-dark-theme--true-color-p ()
   "Return 't' if the frame is capable of displaying true colors."
   (or
+   (daemonp)
    (display-graphic-p)
    (>= (tty-display-color-cells) 16777216)))
 
