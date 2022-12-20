@@ -97,48 +97,48 @@
 (deftheme adwaita-dark
   "A dark color scheme inspired by the libadwaita colors.")
 
-(let ((class '((class color) (min-colors 256)))
+(let* ((class '((class color) (min-colors 256)))
 
-      ;; Layout/Sizing
-      (mode-line-padding 10)
+       ;; Layout/Sizing
+       (mode-line-padding 10)
 
-      ;; Feature availability
-      (flat-button-available-p (version<= "28.1" emacs-version))
-      (true-color-available-p (or (daemonp)
-                                  (display-graphic-p)
-                                  (>= (tty-display-color-cells) 16777216)))
+       ;; Feature availability
+       (flat-button-available-p (version<= "28.1" emacs-version))
+       (true-color-available-p (or (daemonp)
+                                   (display-graphic-p)
+                                   (>= (tty-display-color-cells) 16777216)))
 
-      ;; Background (base) colors
-      ;; [True color | 256-compatible]
-      (bg (if (true-color-available-p) "#1e1e1e" "gray12"))     ; #1f1f1f
-      (bg-alt (if (true-color-available-p) "#242424" "gray14")) ; #242424
-      (base-0 (if (true-color-available-p) "#202020" "gray13")) ; #212121
-      (base-1 (if (true-color-available-p) "#262626" "gray15")) ; #262626
-      (base-2 (if (true-color-available-p) "#292929" "gray16")) ; #292929
-      (base-3 (if (true-color-available-p) "#303030" "gray19")) ; #303030
-      (base-4 (if (true-color-available-p) "#454545" "gray27")) ; #454545
-      (base-5 (if (true-color-available-p) "#656565" "gray40")) ; #666666
-      (base-6 (if (true-color-available-p) "#7b7b7b" "gray48")) ; #7a7a7a
-      (base-7 (if (true-color-available-p) "#a5a5a5" "gray65")) ; #a6a6a6
-      (base-8 (if (true-color-available-p) "#dfdfdf" "gray87")) ; #dedede
-      (fg (if (true-color-available-p) "#deddda" "gray86"))     ; #dbdbdb
-      (fg-alt (if (true-color-available-p) "#77767b" "gray47")) ; #787878
+       ;; Background colors
+       ;; [True color | 256-compatible]
+       (bg (if true-color-available-p "#1e1e1e" "gray12"))     ; #1f1f1f
+       (bg-alt (if true-color-available-p "#242424" "gray14")) ; #242424
+       (base-0 (if true-color-available-p "#202020" "gray13")) ; #212121
+       (base-1 (if true-color-available-p "#262626" "gray15")) ; #262626
+       (base-2 (if true-color-available-p "#292929" "gray16")) ; #292929
+       (base-3 (if true-color-available-p "#303030" "gray19")) ; #303030
+       (base-4 (if true-color-available-p "#454545" "gray27")) ; #454545
+       (base-5 (if true-color-available-p "#656565" "gray40")) ; #666666
+       (base-6 (if true-color-available-p "#7b7b7b" "gray48")) ; #7a7a7a
+       (base-7 (if true-color-available-p "#a5a5a5" "gray65")) ; #a6a6a6
+       (base-8 (if true-color-available-p "#dfdfdf" "gray87")) ; #dedede
+       (fg (if true-color-available-p "#deddda" "gray86"))     ; #dbdbdb
+       (fg-alt (if true-color-available-p "#77767b" "gray47")) ; #787878
 
-      ;; Foreground colors
-      ;; [True color | 256-compatible]
-      (gray (if (true-color-available-p) "#3d3846" "gray23"))           ; #3b3b3b
-      (red (if (true-color-available-p) "#ff6c6b" "indianred2"))        ; #ee6363
-      (orange (if (true-color-available-p) "#ffa348" "orange2"))        ; #ee9a00
-      (green (if (true-color-available-p) "#54d18c" "seagreen3"))       ; #43cd80
-      (teal (if (true-color-available-p) "#5bc8af" "mediumaquamarine")) ; #66cdaa
-      (yellow (if (true-color-available-p) "#f8e45c" "gold2"))          ; #eec900
-      (blue (if (true-color-available-p) "#64a6f4" "steelblue2"))       ; #5cacee
-      (dark-blue (if (true-color-available-p) "#1a5fb4" "dodgerblue4")) ; #104e8b
-      (magenta (if (true-color-available-p) "#dd80de" "orchid3"))       ; #cd69c9
-      (pink (if (true-color-available-p) "#edb8ee" "plum"))             ; #dda0dd
-      (violet (if (true-color-available-p) "#7d8ac7" "mediumpurple3"))  ; #8968cd
-      (cyan (if (true-color-available-p) "#7ee5ff" "mediumturquoise"))  ; #48d1cc
-      (dark-cyan (if (true-color-available-p) "#6bacbd" "cadetblue")))  ; #5f9ea0
+       ;; Foreground colors
+       ;; [True color | 256-compatible]
+       (gray (if true-color-available-p "#3d3846" "gray23"))           ; #3b3b3b
+       (red (if true-color-available-p "#ff6c6b" "indianred2"))        ; #ee6363
+       (orange (if true-color-available-p "#ffa348" "orange2"))        ; #ee9a00
+       (green (if true-color-available-p "#54d18c" "seagreen3"))       ; #43cd80
+       (teal (if true-color-available-p "#5bc8af" "mediumaquamarine")) ; #66cdaa
+       (yellow (if true-color-available-p "#f8e45c" "gold2"))          ; #eec900
+       (blue (if true-color-available-p "#64a6f4" "steelblue2"))       ; #5cacee
+       (dark-blue (if true-color-available-p "#1a5fb4" "dodgerblue4")) ; #104e8b
+       (magenta (if true-color-available-p "#dd80de" "orchid3"))       ; #cd69c9
+       (pink (if true-color-available-p "#edb8ee" "plum"))             ; #dda0dd
+       (violet (if true-color-available-p "#7d8ac7" "mediumpurple3"))  ; #8968cd
+       (cyan (if true-color-available-p "#7ee5ff" "mediumturquoise"))  ; #48d1cc
+       (dark-cyan (if true-color-available-p "#6bacbd" "cadetblue")))  ; #5f9ea0
 
 
   (custom-theme-set-faces
