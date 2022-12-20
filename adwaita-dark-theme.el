@@ -656,6 +656,12 @@
    `(git-commit-comment-branch-local ((,class (:inherit 'magit-branch-local))))
    `(git-commit-comment-branch-remote ((,class (:inherit 'magit-branch-remote))))
 
+   ;; marginalia
+   `(marginalia-key ((,class (:inherit 'help-key-binding))))
+   `(marginalia-value ((,class (:foreground ,base-7))))
+   `(marginalia-size ((,class (:inherit 'font-lock-doc-face))))
+   `(marginalia-date ((,class (:inherit 'font-lock-comment-face))))
+
    ;; mic-paren
    `(paren-face-match ((,class (:inherit 'show-paren-match))))
    `(paren-face-mismatch ((,class (:inherit 'show-paren-mismatch))))
