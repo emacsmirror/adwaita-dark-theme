@@ -852,11 +852,17 @@
 ;;;###autoload
 (defun adwaita-dark-theme-neotree-configuration-enable ()
   "Enable custom adwaita-dark configuration for use with neotree."
-  (progn
-    (advice-add #'neo-global--select-window :after (lambda () (visual-line-mode 0) (set-window-fringes neo-global--window 0 0)))
-    (advice-add #'neo-buffer--insert-root-entry :override #'adwaita-dark-theme--neotree-insert-root)
-    (advice-add #'neo-buffer--insert-dir-entry :override #'adwaita-dark-theme--neotree-insert-dir)
-    (advice-add #'neo-buffer--insert-file-entry :override #'adwaita-dark-theme--neotree-insert-file)))
+  (advice-add #'neo-global--select-window :after (lambda ()
+                                                   (visual-line-mode -1)
+                                                   (set-window-fringes neo-global--window 0 0)
+                                                   (setq-local line-spacing 3
+                                                               mode-line-format nil
+                                                               auto-hscroll-mode nil
+                                                               buffer-display-table (make-display-table))
+                                                   (set-display-table-slot buffer-display-table 'truncation 8230)))
+  (advice-add #'neo-buffer--insert-root-entry :override #'adwaita-dark-theme--neotree-insert-root)
+  (advice-add #'neo-buffer--insert-dir-entry :override #'adwaita-dark-theme--neotree-insert-dir)
+  (advice-add #'neo-buffer--insert-file-entry :override #'adwaita-dark-theme--neotree-insert-file))
 
 ;;
 ;; Fringe bitmap functions
@@ -945,10 +951,9 @@
 ;;;###autoload
 (defun adwaita-dark-theme-flymake-fringe-bmp-enable ()
   "Enable custom adwaita-dark fringe bitmaps for use with flymake."
-  (progn
-    (setq-default flymake-error-bitmap '(adwaita-dark-theme--marker-bmp compilation-error))
-    (setq-default flymake-warning-bitmap '(adwaita-dark-theme--marker-bmp compilation-warning))
-    (setq-default flymake-note-bitmap '(adwaita-dark-theme--marker-bmp compilation-info))))
+  (setq flymake-error-bitmap '(adwaita-dark-theme--marker-bmp compilation-error)
+        flymake-warning-bitmap '(adwaita-dark-theme--marker-bmp compilation-warning)
+        flymake-note-bitmap '(adwaita-dark-theme--marker-bmp compilation-info)))
 
 ;;
 ;; Register theme folder location
