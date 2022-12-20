@@ -54,13 +54,15 @@
 
 ;;; Code:
 
+;; -------------------------------------------------------------------------- ;;
 ;;
-;; Ext. variable declarations
+;; Byte-compiler declarations
 ;;
+;; -------------------------------------------------------------------------- ;;
 
-(defvar neotree-dir-button-keymap)
-(defvar neotree-file-button-keymap)
-(defvar neo-global--window)
+;; ---------------------------------- ;;
+;; External variable defs
+;; ---------------------------------- ;;
 
 (defvar diff-hl-fringe-bmp-function)
 
@@ -68,9 +70,15 @@
 (defvar flymake-warning-bitmap)
 (defvar flymake-note-bitmap)
 
-;;
-;; Ext. function prototypes
-;;
+(defvar neotree-dir-button-keymap)
+(defvar neotree-file-button-keymap)
+(defvar neo-global--window)
+
+;; ---------------------------------- ;;
+;; External function decls
+;; ---------------------------------- ;;
+
+(declare-function flycheck-redefine-standard-error-levels "flycheck" (&optional margin-str fringe-bitmap))
 
 (declare-function neo-path--file-short-name "neotree" (file))
 (declare-function neo-buffer--node-list-set "neotree" (line-num path))
@@ -80,87 +88,73 @@
 (declare-function neo-buffer--insert-dir-entry "neotree" (node depth expanded))
 (declare-function neo-buffer--insert-file-entry "neotree" (node depth))
 
-(declare-function flycheck-redefine-standard-error-levels "flycheck" (&optional margin-str fringe-bitmap))
-
+;; -------------------------------------------------------------------------- ;;
 ;;
-;; Helper functions
+;; Theme code
 ;;
-
-(defun adwaita-dark-theme--true-color-p ()
-  "Return 't' if the frame is capable of displaying true colors."
-  (or
-   (daemonp)
-   (display-graphic-p)
-   (>= (tty-display-color-cells) 16777216)))
-
-;;
-;; Theme definition
-;;
+;; -------------------------------------------------------------------------- ;;
 
 (deftheme adwaita-dark
   "A dark color scheme inspired by the libadwaita colors.")
 
 (let ((class '((class color) (min-colors 256)))
 
-      ;; =====================
-      ;; -- Theme variables --
-      ;; =====================
-
       ;; Layout/Sizing
       (mode-line-padding 10)
 
       ;; Feature availability
       (flat-button-available-p (version<= "28.1" emacs-version))
+      (true-color-available-p (or (daemonp)
+                                  (display-graphic-p)
+                                  (>= (tty-display-color-cells) 16777216)))
 
-      ;; Base (Background) Colors
+      ;; Background (base) colors
       ;; [True color | 256-compatible]
-      (bg (if (adwaita-dark-theme--true-color-p) "#1e1e1e" "gray12"))     ; #1f1f1f
-      (bg-alt (if (adwaita-dark-theme--true-color-p) "#242424" "gray14")) ; #242424
-      (base-0 (if (adwaita-dark-theme--true-color-p) "#202020" "gray13")) ; #212121
-      (base-1 (if (adwaita-dark-theme--true-color-p) "#262626" "gray15")) ; #262626
-      (base-2 (if (adwaita-dark-theme--true-color-p) "#292929" "gray16")) ; #292929
-      (base-3 (if (adwaita-dark-theme--true-color-p) "#303030" "gray19")) ; #303030
-      (base-4 (if (adwaita-dark-theme--true-color-p) "#454545" "gray27")) ; #454545
-      (base-5 (if (adwaita-dark-theme--true-color-p) "#656565" "gray40")) ; #666666
-      (base-6 (if (adwaita-dark-theme--true-color-p) "#7b7b7b" "gray48")) ; #7a7a7a
-      (base-7 (if (adwaita-dark-theme--true-color-p) "#a5a5a5" "gray65")) ; #a6a6a6
-      (base-8 (if (adwaita-dark-theme--true-color-p) "#dfdfdf" "gray87")) ; #dedede
-      (fg (if (adwaita-dark-theme--true-color-p) "#deddda" "gray86"))     ; #dbdbdb
-      (fg-alt (if (adwaita-dark-theme--true-color-p) "#77767b" "gray47")) ; #787878
+      (bg (if (true-color-available-p) "#1e1e1e" "gray12"))     ; #1f1f1f
+      (bg-alt (if (true-color-available-p) "#242424" "gray14")) ; #242424
+      (base-0 (if (true-color-available-p) "#202020" "gray13")) ; #212121
+      (base-1 (if (true-color-available-p) "#262626" "gray15")) ; #262626
+      (base-2 (if (true-color-available-p) "#292929" "gray16")) ; #292929
+      (base-3 (if (true-color-available-p) "#303030" "gray19")) ; #303030
+      (base-4 (if (true-color-available-p) "#454545" "gray27")) ; #454545
+      (base-5 (if (true-color-available-p) "#656565" "gray40")) ; #666666
+      (base-6 (if (true-color-available-p) "#7b7b7b" "gray48")) ; #7a7a7a
+      (base-7 (if (true-color-available-p) "#a5a5a5" "gray65")) ; #a6a6a6
+      (base-8 (if (true-color-available-p) "#dfdfdf" "gray87")) ; #dedede
+      (fg (if (true-color-available-p) "#deddda" "gray86"))     ; #dbdbdb
+      (fg-alt (if (true-color-available-p) "#77767b" "gray47")) ; #787878
 
-      ;; Foreground Colors
+      ;; Foreground colors
       ;; [True color | 256-compatible]
-      (gray (if (adwaita-dark-theme--true-color-p) "#3d3846" "gray23"))           ; #3b3b3b
-      (red (if (adwaita-dark-theme--true-color-p) "#ff6c6b" "indianred2"))        ; #ee6363
-      (orange (if (adwaita-dark-theme--true-color-p) "#ffa348" "orange2"))        ; #ee9a00
-      (green (if (adwaita-dark-theme--true-color-p) "#54d18c" "seagreen3"))       ; #43cd80
-      (teal (if (adwaita-dark-theme--true-color-p) "#5bc8af" "mediumaquamarine")) ; #66cdaa
-      (yellow (if (adwaita-dark-theme--true-color-p) "#f8e45c" "gold2"))          ; #eec900
-      (blue (if (adwaita-dark-theme--true-color-p) "#64a6f4" "steelblue2"))       ; #5cacee
-      (dark-blue (if (adwaita-dark-theme--true-color-p) "#1a5fb4" "dodgerblue4")) ; #104e8b
-      (magenta (if (adwaita-dark-theme--true-color-p) "#dd80de" "orchid3"))       ; #cd69c9
-      (pink (if (adwaita-dark-theme--true-color-p) "#edb8ee" "plum"))             ; #dda0dd
-      (violet (if (adwaita-dark-theme--true-color-p) "#7d8ac7" "mediumpurple3"))  ; #8968cd
-      (cyan (if (adwaita-dark-theme--true-color-p) "#7ee5ff" "mediumturquoise"))  ; #48d1cc
-      (dark-cyan (if (adwaita-dark-theme--true-color-p) "#6bacbd" "cadetblue")))  ; #5f9ea0
+      (gray (if (true-color-available-p) "#3d3846" "gray23"))           ; #3b3b3b
+      (red (if (true-color-available-p) "#ff6c6b" "indianred2"))        ; #ee6363
+      (orange (if (true-color-available-p) "#ffa348" "orange2"))        ; #ee9a00
+      (green (if (true-color-available-p) "#54d18c" "seagreen3"))       ; #43cd80
+      (teal (if (true-color-available-p) "#5bc8af" "mediumaquamarine")) ; #66cdaa
+      (yellow (if (true-color-available-p) "#f8e45c" "gold2"))          ; #eec900
+      (blue (if (true-color-available-p) "#64a6f4" "steelblue2"))       ; #5cacee
+      (dark-blue (if (true-color-available-p) "#1a5fb4" "dodgerblue4")) ; #104e8b
+      (magenta (if (true-color-available-p) "#dd80de" "orchid3"))       ; #cd69c9
+      (pink (if (true-color-available-p) "#edb8ee" "plum"))             ; #dda0dd
+      (violet (if (true-color-available-p) "#7d8ac7" "mediumpurple3"))  ; #8968cd
+      (cyan (if (true-color-available-p) "#7ee5ff" "mediumturquoise"))  ; #48d1cc
+      (dark-cyan (if (true-color-available-p) "#6bacbd" "cadetblue")))  ; #5f9ea0
 
-  ;; Face Definitions
+
   (custom-theme-set-faces
    'adwaita-dark
 
-   ;; ================
-   ;; -- Core faces --
-   ;; ================
+   ;; ---------------------------------- ;;
+   ;; Core Emacs faces
+   ;; ---------------------------------- ;;
 
    ;; default face
    `(default ((,class (:background ,bg :foreground ,fg))))
 
-   ;; generic faces
+   ;; Emacs faces
    `(error ((,class (:foreground ,red))))
    `(warning ((,class (:foreground ,yellow))))
    `(success ((,class (:foreground ,green))))
-
-   ;; emacs faces
    `(fringe ((,class (:inherit 'default :foreground ,base-4))))
    `(region ((,class (:background ,base-4 :foreground nil :distant-foreground ,fg))))
    `(highlight ((,class (:background ,blue :foreground ,base-0 :distant-foreground ,base-8))))
@@ -196,7 +190,7 @@
    `(font-lock-regexp-grouping-backslash ((,class (:inherit 'bold :foreground ,teal))))
    `(font-lock-regexp-grouping-construct ((,class (:inherit 'bold :foreground ,teal))))
 
-   ;; mode-line / header-line
+   ;; mode-line/header-line
    `(mode-line ((,class (:background ,base-3 :foreground ,fg :box (:line-width ,mode-line-padding :color ,base-3)))))
    `(mode-line-inactive ((,class (:background ,bg-alt :foreground ,base-5 :box (:line-width ,mode-line-padding :color ,bg-alt)))))
    `(mode-line-emphasis ((,class (:foreground ,blue))))
@@ -204,9 +198,9 @@
    `(mode-line-buffer-id ((,class (:foreground ,base-8 :weight bold))))
    `(header-line ((,class (:inherit 'mode-line-inactive ,base-6))))
 
-   ;; ===============================
-   ;; -- Built-in packages/plugins --
-   ;; ===============================
+   ;; ---------------------------------- ;;
+   ;; Internal/built-in packages
+   ;; ---------------------------------- ;;
 
    ;; ansi-colors
    `(ansi-color-black ((,class (:foreground "#464646" :background "#464646"))))
@@ -422,9 +416,9 @@
    `(window-divider-first-pixel ((,class (:inherit 'window-divider))))
    `(window-divider-last-pixel ((,class (:inherit 'window-divider))))
 
-   ;; ===============================
-   ;; -- External packages/plugins --
-   ;; ===============================
+   ;; ---------------------------------- ;;
+   ;; External packages
+   ;; ---------------------------------- ;;
 
    ;; anzu
    `(anzu-mode-line ((,class (:foreground ,blue))))
@@ -800,9 +794,15 @@
    ;; yasnippet
    `(yas-field-highlight-face ((,class (:inherit 'match))))))
 
+;; -------------------------------------------------------------------------- ;;
 ;;
-;; Neotree functions
+;; NeoTree configuration
 ;;
+;; -------------------------------------------------------------------------- ;;
+
+;; ---------------------------------- ;;
+;; Internal functions
+;; ---------------------------------- ;;
 
 (defun adwaita-dark-theme--neotree-hidden-dir-p (dirname)
   "Return non-nil if DIRNAME should be considered hidden."
@@ -858,26 +858,35 @@
     (neo-buffer--node-list-set nil node)
     (neo-buffer--newline-and-begin)))
 
+;; ---------------------------------- ;;
+;; Setup function
+;; ---------------------------------- ;;
+
 ;;;###autoload
 (defun adwaita-dark-theme-neotree-configuration-enable ()
   "Enable custom adwaita-dark configuration for use with neotree."
   (advice-add #'neo-global--select-window :after (lambda ()
-                                                   (visual-line-mode -1)
-                                                   (set-window-fringes neo-global--window 0 0)
                                                    (setq-local line-spacing 3
                                                                mode-line-format nil
                                                                auto-hscroll-mode nil
                                                                buffer-display-table (make-display-table))
+                                                   (visual-line-mode -1)
+                                                   (set-window-fringes neo-global--window 0 0)
                                                    (set-display-table-slot buffer-display-table 'truncation 8230)))
   (advice-add #'neo-buffer--insert-root-entry :override #'adwaita-dark-theme--neotree-insert-root)
   (advice-add #'neo-buffer--insert-dir-entry :override #'adwaita-dark-theme--neotree-insert-dir)
   (advice-add #'neo-buffer--insert-file-entry :override #'adwaita-dark-theme--neotree-insert-file))
 
+;; -------------------------------------------------------------------------- ;;
 ;;
-;; Fringe bitmap functions
+;; Arrow fringe bitmaps configuration
 ;;
+;; -------------------------------------------------------------------------- ;;
 
-;; arrow fringe bitmaps
+;; ---------------------------------- ;;
+;; Bitmap definitions
+;; ---------------------------------- ;;
+
 (defconst adwaita-dark-theme--right-arrow-bmp
   (vector #b00000000
           #b00000000
@@ -888,6 +897,7 @@
           #b00110000
           #b00000000)
   "Bitmap used to overwrite Emacs's right line-continuation fringe bitmap.")
+
 (defconst adwaita-dark-theme--left-arrow-bmp
   (vector #b00000000
           #b00000000
@@ -898,6 +908,7 @@
           #b00001100
           #b00000000)
   "Bitmap used to overwrite Emacs's left line-continuation fringe bitmap.")
+
 (defconst adwaita-dark-theme--down-arrow-bmp
   (vector #b00000000
           #b00000000
@@ -908,9 +919,14 @@
           #b00111100
           #b00011000)
   "Bitmap used to overwrite Emac's right line-wrapping fringe bitmap.")
+
 (defconst adwaita-dark-theme--empty-bmp
   (vector #b0)
   "Bitmap used to overwrite Emac's left line-wrapping fringe bitmap.")
+
+;; ---------------------------------- ;;
+;; Setup function
+;; ---------------------------------- ;;
 
 ;;;###autoload
 (defun adwaita-dark-theme-arrow-fringe-bmp-enable ()
@@ -920,7 +936,16 @@
   (define-fringe-bitmap 'right-curly-arrow adwaita-dark-theme--down-arrow-bmp)
   (define-fringe-bitmap 'left-curly-arrow adwaita-dark-theme--empty-bmp))
 
-;; diff-hl fringe bitmap
+;; -------------------------------------------------------------------------- ;;
+;;
+;; diff-hl fringe bitmaps configuration
+;;
+;; -------------------------------------------------------------------------- ;;
+
+;; ---------------------------------- ;;
+;; Bitmap definitions
+;; ---------------------------------- ;;
+
 (defconst adwaita-dark-theme--diff-hl-bmp
   (define-fringe-bitmap 'adwaita-dark-theme--diff-hl-bmp
     (vector #b11100000)
@@ -928,16 +953,38 @@
     '(center t))
   "Fringe bitmap for use with `diff-hl'.")
 
+;; ---------------------------------- ;;
+;; Internal functions
+;; ---------------------------------- ;;
+
 (defun adwaita-dark-theme--diff-hl-fringe-bmp-function (_type _pos)
   "Fringe bitmap function for use as `diff-hl-fringe-bmp-function'."
   adwaita-dark-theme--diff-hl-bmp)
+
+;; ---------------------------------- ;;
+;; Setup function
+;; ---------------------------------- ;;
 
 ;;;###autoload
 (defun adwaita-dark-theme-diff-hl-fringe-bmp-enable ()
   "Enable custom adwaita-dark fringe bitmaps for use with flymake."
   (setq diff-hl-fringe-bmp-function #'adwaita-dark-theme--diff-hl-fringe-bmp-function))
 
-;; flycheck/flymake fringe bitmaps
+;; -------------------------------------------------------------------------- ;;
+;;
+;; flycheck/flymake fringe bitmaps configuration
+;;
+;; -------------------------------------------------------------------------- ;;
+
+;; ---------------------------------- ;;
+;; Bitmap definitions
+;; ---------------------------------- ;;
+
+(defconst adwaita-dark-theme--dot-bmp
+  (vector #b01100000
+          #b01100000)
+  "Bitmap used to overwrite flycheck's continuation fringe bitmap.")
+
 (define-fringe-bitmap 'adwaita-dark-theme--marker-bmp
   (vector #b11100000
           #b11110000
@@ -946,16 +993,20 @@
           #b11111000
           #b11110000
           #b11100000))
-(defconst adwaita-dark-theme--dot-bmp
-  (vector #b01100000
-          #b01100000)
-  "Bitmap used to overwrite flycheck's continuation fringe bitmap.")
+
+;; ---------------------------------- ;;
+;; Flycheck setup function
+;; ---------------------------------- ;;
 
 ;;;###autoload
 (defun adwaita-dark-theme-flycheck-fringe-bmp-enable ()
   "Enable custom adwaita-dark fringe bitmaps for use with flycheck."
   (flycheck-redefine-standard-error-levels nil 'adwaita-dark-theme--marker-bmp)
   (define-fringe-bitmap 'flycheck-fringe-bitmap-continuation adwaita-dark-theme--dot-bmp))
+
+;; ---------------------------------- ;;
+;; Flymake setup function
+;; ---------------------------------- ;;
 
 ;;;###autoload
 (defun adwaita-dark-theme-flymake-fringe-bmp-enable ()
@@ -964,18 +1015,25 @@
         flymake-warning-bitmap '(adwaita-dark-theme--marker-bmp compilation-warning)
         flymake-note-bitmap '(adwaita-dark-theme--marker-bmp compilation-info)))
 
+;; -------------------------------------------------------------------------- ;;
 ;;
+;; Provide theme
+;;
+;; -------------------------------------------------------------------------- ;;
+
+;; ---------------------------------- ;;
 ;; Register theme folder location
-;;
+;; ---------------------------------- ;;
 
 ;;;###autoload
 (when (and (boundp 'custom-theme-load-path) load-file-name)
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-;;
-;; Provide adwaita-dark-theme
-;;
+
+;; ---------------------------------- ;;
+;; Provide theme/package
+;; ---------------------------------- ;;
 
 (provide-theme 'adwaita-dark)
 (provide 'adwaita-dark-theme)
