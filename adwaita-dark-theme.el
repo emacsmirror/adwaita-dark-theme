@@ -460,6 +460,7 @@
    `(corfu-bar ((,class (:background ,base-5))))
    `(corfu-border ((,class (:background ,base-3))))
    `(corfu-echo ((,class (:inherit 'font-lock-doc-face))))
+   `(corfu-popupinfo ((,class (:inherit 'corfu-default))))
 
    ;; diff-hl
    `(diff-hl-change ((,class (:foreground ,orange))))
