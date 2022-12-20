@@ -677,7 +677,7 @@
    `(nav-flash-face ((,class (:background ,dark-blue :foreground ,base-8 :weight bold))))
 
    ;; neotree
-   `(neo-root-dir-face ((,class (:inherit 'bold :foreground ,base-8)))) ;;:box (:line-width 7 :color ,bg)))))
+   `(neo-root-dir-face ((,class (:inherit 'bold :foreground ,base-8))))
    `(neo-file-link-face ((,class (:foreground ,fg))))
    `(neo-dir-link-face ((,class (:foreground ,fg :foreground ,base-7))))
    `(neo-expand-btn-face ((,class (:foreground ,blue))))
