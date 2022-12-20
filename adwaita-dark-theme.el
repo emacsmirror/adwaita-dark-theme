@@ -62,6 +62,12 @@
 (defvar neotree-file-button-keymap)
 (defvar neo-global--window)
 
+(defvar diff-hl-fringe-bmp-function)
+
+(defvar flymake-error-bitmap)
+(defvar flymake-warning-bitmap)
+(defvar flymake-note-bitmap)
+
 ;;
 ;; Ext. function prototypes
 ;;
