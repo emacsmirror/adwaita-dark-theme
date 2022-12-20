@@ -774,6 +774,12 @@
    ;; vertico
    `(vertico-current ((,class (:inherit 'hl-line :background ,base-3 :weight bold))))
 
+   ;; vundo
+   `(vundo-default ((,class (:background ,bg-alt))))
+   `(vundo-stem ((,class (:foreground ,base-5))))
+   `(vundo-node ((,class (:foreground ,base-6))))
+   `(vundo-highlight ((,class (:foreground ,blue))))
+
    ;; which-func
    `(which-func ((,class (:foreground ,blue))))
 
