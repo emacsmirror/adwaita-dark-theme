@@ -27,7 +27,7 @@
 ;; (eval-after-load 'neotree #'adwaita-dark-theme-neotree-configuration-enable)
 ;;
 ;; To enable custom fringe bitmaps for `diff-hl':
-;; (setq diff-hl-fringe-bmp-function #'adwaita-dark-theme-diff-hl-fringe-bmp-function)
+;; (eval-after-load 'diff-hl #'adwaita-dark-theme-diff-hl-fringe-bmp-enable)
 ;;
 ;; To enable custom fringe bitmaps for `flycheck':
 ;; (eval-after-load 'flycheck #'adwaita-dark-theme-flycheck-fringe-bmp-enable)
@@ -922,17 +922,21 @@
   (define-fringe-bitmap 'left-curly-arrow adwaita-dark-theme--empty-bmp))
 
 ;; diff-hl fringe bitmap
-(defvar adwaita-dark-theme--diff-hl-bmp
+(defconst adwaita-dark-theme--diff-hl-bmp
   (define-fringe-bitmap 'adwaita-dark-theme--diff-hl-bmp
     (vector #b11100000)
     1 8
     '(center t))
   "Fringe bitmap for use with `diff-hl'.")
 
-;;;###autoload
-(defun adwaita-dark-theme-diff-hl-fringe-bmp-function (_type _pos)
+(defun adwaita-dark-theme--diff-hl-fringe-bmp-function (_type _pos)
   "Fringe bitmap function for use as `diff-hl-fringe-bmp-function'."
   adwaita-dark-theme--diff-hl-bmp)
+
+;;;###autoload
+(defun adwaita-dark-theme-diff-hl-fringe-bmp-enable ()
+  "Enable custom adwaita-dark fringe bitmaps for use with flymake."
+  (setq diff-hl-fringe-bmp-function #'adwaita-dark-theme--diff-hl-fringe-bmp-function))
 
 ;; flycheck/flymake fringe bitmaps
 (define-fringe-bitmap 'adwaita-dark-theme--marker-bmp
