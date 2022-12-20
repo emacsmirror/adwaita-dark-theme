@@ -99,7 +99,7 @@
 
 (let* ((class '((class color) (min-colors 256)))
 
-       ;; Layout/Sizing
+       ;; Layout/sizing
        (mode-line-padding 10)
 
        ;; Feature availability
