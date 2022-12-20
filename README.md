@@ -1,5 +1,7 @@
 # adwaita-dark-theme
-### Version 1.0.0
+
+[![MELPA](https://melpa.org/packages/adwaita-dark-theme-badge.svg)](https://melpa.org/#/adwaita-dark-theme)
+[![MELPA Stable](https://stable.melpa.org/packages/adwaita-dark-theme-badge.svg)](https://stable.melpa.org/#/adwaita-dark-theme)
 
 ## About
 
