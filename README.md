@@ -31,7 +31,7 @@ To replace default line continuation/line wrap fringe bitmaps:
 `(adwaita-dark-theme-arrow-fringe-bmp-enable)`
 
 To enable custom fringe bitmaps for [diff-hl](https://github.com/dgutov/diff-hl):
-`(setq diff-hl-fringe-bmp-function #'adwaita-dark-theme-diff-hl-fringe-bmp-function)`
+`(eval-after-load 'diff-hl #'adwaita-dark-theme-diff-hl-fringe-bmp-enable)`
 
 To enable custom fringe bitmaps for [flycheck](https://www.flycheck.org/en/latest/):
 `(eval-after-load 'flycheck #'adwaita-dark-theme-flycheck-fringe-bmp-enable)`
@@ -39,9 +39,7 @@ To enable custom fringe bitmaps for [flycheck](https://www.flycheck.org/en/lates
 To enable custom fringe bitmaps for [flymake](https://www.emacswiki.org/emacs/FlyMake):
 `(eval-after-load 'flymake #'adwaita-dark-theme-flymake-fringe-bmp-enable)`
 
-## Known Issues
-
-* No known issues.
+## Feedback
 
 If you experience any issues with this package, please
 [open an issue](https://gitlab.com/jessieh/adwaita-dark-theme/issues/new)
