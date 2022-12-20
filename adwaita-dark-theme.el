@@ -807,15 +807,13 @@
 
 (defun adwaita-dark-theme--neotree-insert-root (node)
   "Insert root directory NODE at point."
-  (insert
-   (concat
-    " "
-    (propertize
-     "🖿"
-     'face '(:inherit (neo-root-dir-face) :height 1.5))
-    (propertize
-     (concat " " (or (neo-path--file-short-name node) "-") " \n")
-     'face '(:inherit (neo-root-dir-face) :height 1.0)))))
+  (insert " "
+          (propertize
+           "🖿"
+           'face '(:inherit (neo-root-dir-face) :height 1.5))
+          (propertize
+           (concat " " (or (neo-path--file-short-name node) "-") " \n")
+           'face '(:inherit (neo-root-dir-face) :height 1.0))))
 
 (defun adwaita-dark-theme--neotree-insert-dir (node depth expanded)
   "Insert directory NODE with indentation level DEPTH and state EXPANDED at point."
