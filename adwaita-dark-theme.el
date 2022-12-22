@@ -137,8 +137,7 @@
        (magenta (if true-color-available-p "#dd80de" "orchid3"))       ; #cd69c9
        (pink (if true-color-available-p "#edb8ee" "plum"))             ; #dda0dd
        (violet (if true-color-available-p "#7d8ac7" "mediumpurple3"))  ; #8968cd
-       (cyan (if true-color-available-p "#7ee5ff" "mediumturquoise"))  ; #48d1cc
-       (dark-cyan (if true-color-available-p "#6bacbd" "cadetblue")))  ; #5f9ea0
+       (cyan (if true-color-available-p "#7ee5ff" "mediumturquoise"))) ; #48d1cc
 
   (custom-theme-set-faces
    'adwaita-dark
@@ -478,7 +477,7 @@
    `(company-tooltip ((,class (:inherit tooltip))))
    `(company-tooltip-common ((,class (:foreground ,blue :distant-foreground ,base-0 :weight bold))))
    `(company-tooltip-search ((,class (:background ,blue :foreground ,bg :distant-foreground ,fg :weight bold))))
-   `(company-tooltip-search-selection ((,class (:background ,dark-cyan :weight bold))))
+   `(company-tooltip-search-selection ((,class (:background ,cyan :weight bold))))
    `(company-tooltip-selection ((,class (:background ,dark-blue :weight bold))))
    `(company-tooltip-mouse ((,class (:background ,magenta :foreground ,bg :distant-foreground ,fg))))
    `(company-tooltip-annotation ((,class (:foreground ,violet :distant-foreground ,bg))))
