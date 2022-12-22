@@ -169,6 +169,7 @@
    `(nobreak-space ((,class (:inherit 'default :underline nil))))
    `(vertical-border ((,class (:background ,bg-alt :foreground ,bg-alt))))
    `(link ((,class (:foreground ,blue :underline t :weight bold))))
+   `(link-visited ((,class (:foreground ,magenta :underline t :weight bold))))
    `(widget-single-line-field ((,class :background ,base-5)))
    `(widget-field ((,class (:inherit 'widget-single-line-field :extend t))))
 
