@@ -754,10 +754,10 @@
 
    ;; swiper
    `(swiper-line-face ((,class (:background ,blue :foreground ,base-0))))
-   `(swiper-match-face-1 ((,class (:inherit unspecified :background ,base-0 :foreground ,base-5))))
-   `(swiper-match-face-2 ((,class (:inherit unspecified :background ,orange :foreground ,base-0 :weight bold))))
-   `(swiper-match-face-3 ((,class (:inherit unspecified :background ,magenta :foreground ,base-0 :weight bold))))
-   `(swiper-match-face-4 ((,class (:inherit unspecified :background ,green :foreground ,base-0 :weight bold))))
+   `(swiper-match-face-1 ((,class (:background ,base-0 :foreground ,base-5))))
+   `(swiper-match-face-2 ((,class (:background ,orange :foreground ,base-0 :weight bold))))
+   `(swiper-match-face-3 ((,class (:background ,magenta :foreground ,base-0 :weight bold))))
+   `(swiper-match-face-4 ((,class (:background ,green :foreground ,base-0 :weight bold))))
 
    ;; transient
    `(transient-heading ((,class (:foreground ,base-8 :weight bold))))
