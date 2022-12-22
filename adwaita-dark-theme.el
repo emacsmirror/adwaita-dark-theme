@@ -131,7 +131,7 @@
        (orange (if true-color-available-p "#ffa348" "orange2"))        ; #ee9a00
        (green (if true-color-available-p "#54d18c" "seagreen3"))       ; #43cd80
        (teal (if true-color-available-p "#5bc8af" "mediumaquamarine")) ; #66cdaa
-       (yellow (if true-color-available-p "#f5d511" "gold2"))          ; #eec900
+       (yellow (if true-color-available-p "#f8e45c" "gold2"))          ; #eec900
        (blue (if true-color-available-p "#64a6f4" "steelblue2"))       ; #5cacee
        (dark-blue (if true-color-available-p "#1a5fb4" "dodgerblue4")) ; #104e8b
        (magenta (if true-color-available-p "#dd80de" "orchid3"))       ; #cd69c9
