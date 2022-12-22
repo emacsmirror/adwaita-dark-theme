@@ -739,7 +739,7 @@
    `(nav-flash-face ((,class (:background ,dark-blue :foreground ,base-8 :weight bold))))
 
    ;; neotree
-   `(neo-root-dir-face ((,class (:inherit bold :foreground ,base-8))))
+   `(neo-root-dir-face ((,class (:foreground ,base-8 :weight bold))))
    `(neo-file-link-face ((,class (:foreground ,fg))))
    `(neo-dir-link-face ((,class (:foreground ,fg :foreground ,base-7))))
    `(neo-expand-btn-face ((,class (:foreground ,blue))))
@@ -815,7 +815,7 @@
    `(undo-tree-visualizer-register-face ((,class (:foreground ,yellow))))
 
    ;; vertico
-   `(vertico-current ((,class (:inherit hl-line :background ,base-3 :weight bold))))
+   `(vertico-current ((,class (:background ,base-3 :weight bold))))
 
    ;; vundo
    `(vundo-default ((,class (:background ,bg-alt))))
