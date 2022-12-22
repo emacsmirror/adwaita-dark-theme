@@ -321,10 +321,10 @@
    `(dired-warning ((,class (:foreground ,yellow))))
 
    ;; ediff
-   `(ediff-fine-diff-A ((,class (:background ,base-4 :weight bold)))) ;; bg blend 0.7
+   `(ediff-fine-diff-A ((,class (:background ,base-4 :weight bold))))
    `(ediff-fine-diff-B ((,class (:inherit ediff-fine-diff-A))))
    `(ediff-fine-diff-C ((,class (:inherit ediff-find-diff-A))))
-   `(ediff-current-diff-A ((,class (:background ,base-2)))) ;; bg blend 0.2
+   `(ediff-current-diff-A ((,class (:background ,base-2))))
    `(ediff-current-diff-B ((,class (:inherit ediff-current-diff-A))))
    `(ediff-current-diff-C ((,class (:inherit ediff-current-diff-A))))
    `(ediff-even-diff-A ((,class (:inherit hl-line))))
