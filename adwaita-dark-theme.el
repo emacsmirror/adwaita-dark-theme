@@ -506,7 +506,7 @@
    `(diff-hl-insert ((,class (:foreground ,green))))
 
    ;; fic-mode
-   `(fic-face ((,class (:foreground ,violet :weight bold))))
+   `(fic-face ((,class (:foreground ,yellow :weight bold))))
 
    ;; flx-ido
    `(flx-highlight-face ((,class (:foreground ,yellow :weight bold :underline nil))))
@@ -733,7 +733,7 @@
    ;; popup
    `(popup-face ((,class (:inherit tooltip))))
    `(popup-tip-face ((,class (:inherit popup-face :background ,base-0 :foreground ,violet))))
-   `(popup-selection-face ((,class (:background ,dark-blue))))
+   `(popup-selection-face ((,class (:background ,base-5))))
 
    ;; rainbow-delimiters
    `(rainbow-delimiters-depth-1-face ((,class (:foreground ,blue))))
