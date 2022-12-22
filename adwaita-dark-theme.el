@@ -90,12 +90,39 @@
 
 ;; -------------------------------------------------------------------------- ;;
 ;;
-;; Theme code
+;; Custom definitions
 ;;
 ;; -------------------------------------------------------------------------- ;;
 
+;; ---------------------------------- ;;
+;; Theme definition
+;; ---------------------------------- ;;
+
 (deftheme adwaita-dark
   "A dark color scheme inspired by the libadwaita colors.")
+
+;; ---------------------------------- ;;
+;; Group definition
+;; ---------------------------------- ;;
+
+(defgroup adwaita-dark-theme nil
+  "A dark color scheme inspired by Adwaita."
+  :group 'faces)
+
+;; ---------------------------------- ;;
+;; Variable definitions
+;; ---------------------------------- ;;
+
+(defcustom adwaita-dark-theme-gray-rainbow-delimiters nil
+  "When non-nil, `rainbow-delimiters-mode' faces will be the same shade of gray."
+  :group 'adwaita-dark-theme
+  :type 'boolean)
+
+;; -------------------------------------------------------------------------- ;;
+;;
+;; Theme code
+;;
+;; -------------------------------------------------------------------------- ;;
 
 (let* ((class '((class color) (min-colors 256)))
 
@@ -732,15 +759,15 @@
    `(popup-selection-face ((,class (:background ,base-5))))
 
    ;; rainbow-delimiters
-   `(rainbow-delimiters-depth-1-face ((,class (:foreground ,blue))))
-   `(rainbow-delimiters-depth-2-face ((,class (:foreground ,magenta))))
-   `(rainbow-delimiters-depth-3-face ((,class (:foreground ,green))))
-   `(rainbow-delimiters-depth-4-face ((,class (:foreground ,violet))))
-   `(rainbow-delimiters-depth-5-face ((,class (:foreground ,teal))))
-   `(rainbow-delimiters-depth-6-face ((,class (:foreground ,blue))))
-   `(rainbow-delimiters-depth-7-face ((,class (:foreground ,magenta))))
-   `(rainbow-delimiters-depth-8-face ((,class (:foreground ,green))))
-   `(rainbow-delimiters-depth-9-face ((,class (:foreground ,violet))))
+   `(rainbow-delimiters-depth-1-face ((,class (:foreground ,(if adwaita-dark-theme-gray-rainbow-delimiters base-7 blue)))))
+   `(rainbow-delimiters-depth-2-face ((,class (:foreground ,(if adwaita-dark-theme-gray-rainbow-delimiters base-7 magenta)))))
+   `(rainbow-delimiters-depth-3-face ((,class (:foreground ,(if adwaita-dark-theme-gray-rainbow-delimiters base-7 green)))))
+   `(rainbow-delimiters-depth-4-face ((,class (:foreground ,(if adwaita-dark-theme-gray-rainbow-delimiters base-7 violet)))))
+   `(rainbow-delimiters-depth-5-face ((,class (:foreground ,(if adwaita-dark-theme-gray-rainbow-delimiters base-7 teal)))))
+   `(rainbow-delimiters-depth-6-face ((,class (:foreground ,(if adwaita-dark-theme-gray-rainbow-delimiters base-7 blue)))))
+   `(rainbow-delimiters-depth-7-face ((,class (:foreground ,(if adwaita-dark-theme-gray-rainbow-delimiters base-7 magenta)))))
+   `(rainbow-delimiters-depth-8-face ((,class (:foreground ,(if adwaita-dark-theme-gray-rainbow-delimiters base-7 green)))))
+   `(rainbow-delimiters-depth-9-face ((,class (:foreground ,(if adwaita-dark-theme-gray-rainbow-delimiters base-7 violet)))))
    `(rainbow-delimiters-unmatched-face ((,class (:foreground ,red :weight ultra-bold))))
    `(rainbow-delimiters-mismatched-face ((,class (:inherit rainbow-delimiters-unmatched-face))))
 
