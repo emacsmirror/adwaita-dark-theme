@@ -335,6 +335,14 @@
    `(eshell-ls-symlink ((,class (:foreground ,cyan))))
    `(eshell-ls-unreadable ((,class (:foreground ,base-5))))
 
+   ;; flymake
+   `(flymake-error ((,class (:underline (:color ,red)))))
+   `(flymake-note ((,class (:underline (:color ,green)))))
+   `(flymake-warning ((,class (:underline (:color ,orange)))))
+
+   ;; flyspell
+   `(flyspell-incorrect ((,class (:inherit unspecified :underline (:color ,red)))))
+
    ;; gdb
    `(breakpoint-enabled ((,class (:foreground ,red))))
    `(breakpoint-disabled ((,class (:foreground ,base-5))))
@@ -403,6 +411,12 @@
    ;; pulse
    `(pulse-highlight-start-face ((,class (:background ,base-5 :extend t))))
 
+   ;; re-builder
+   `(reb-match-0 ((,class (:foreground ,orange :inverse-video t))))
+   `(reb-match-1 ((,class (:foreground ,magenta :inverse-video t))))
+   `(reb-match-2 ((,class (:foreground ,green :inverse-video t))))
+   `(reb-match-3 ((,class (:foreground ,yellow :inverse-video t))))
+
    ;; show-paren
    `(show-paren-match ((,class (:foreground ,fg :weight ultra-bold))))
    `(show-paren-mismatch ((,class (:foreground ,red :weight ultra-bold))))
@@ -418,6 +432,22 @@
    `(tab-bar ((,class (:background ,bg-alt))))
    `(tab-bar-tab ((,class (:background ,bg :foreground ,fg :box (:line-width ,mode-line-padding :color ,bg)))))
    `(tab-bar-tab-inactive ((,class (:background ,bg-alt :foreground ,fg-alt :box (:line-width ,mode-line-padding :color ,bg-alt)))))
+
+   ;; which-func
+   `(which-func ((,class (:inherit font-lock-function-name-face))))
+
+   ;; whitespace
+   `(whitespace-empty ((,class (:background ,base-2))))
+   `(whitespace-hspace ((,class (:foreground ,base-4))))
+   `(whitespace-space ((,class (:foreground ,base-4))))
+   `(whitespace-tab ((,class (:foreground ,base-4))))
+   `(whitespace-newline ((,class (:foreground ,base-4))))
+   `(whitespace-line ((,class (:underline (:color ,base-4)))))
+   `(whitespace-trailing ((,class (:inherit trailing-whitespace))))
+   `(whitespace-indentation ((,class (:background ,base-3 :foreground ,base-0))))
+   `(whitespace-space-after-tab ((,class (:background ,yellow :foreground ,base-0))))
+   `(whitespace-space-before-tab ((,class (:inherit whitespace-space-after-tab))))
+   `(whitespace-missing-newline-at-eof ((,class (:inherit whitespace-space-after-tab))))
 
    ;; window-divider
    `(window-divider ((,class (:inherit vertical-border))))
@@ -495,14 +525,6 @@
    `(flycheck-posframe-error-face ((,class (:inherit flycheck-posframe-face :foreground ,red))))
    `(flycheck-posframe-info-face ((,class (:inherit flycheck-posframe-face :foreground ,fg))))
    `(flycheck-posframe-warning-face ((,class (:inherit flycheck-posframe-face :foreground ,yellow))))
-
-   ;; flymake
-   `(flymake-error ((,class (:underline (:color ,red)))))
-   `(flymake-note ((,class (:underline (:color ,green)))))
-   `(flymake-warning ((,class (:underline (:color ,orange)))))
-
-   ;; flyspell
-   `(flyspell-incorrect ((,class (:inherit unspecified :underline (:color ,red)))))
 
    ;; git-gutter
    `(git-gutter:modified ((,class (:foreground ,orange))))
@@ -724,12 +746,6 @@
    `(rainbow-delimiters-unmatched-face ((,class (:foreground ,red :weight ultra-bold))))
    `(rainbow-delimiters-mismatched-face ((,class (:inherit rainbow-delimiters-unmatched-face))))
 
-   ;; re-builder
-   `(reb-match-0 ((,class (:foreground ,orange :inverse-video t))))
-   `(reb-match-1 ((,class (:foreground ,magenta :inverse-video t))))
-   `(reb-match-2 ((,class (:foreground ,green :inverse-video t))))
-   `(reb-match-3 ((,class (:foreground ,yellow :inverse-video t))))
-
    ;; smartparens
    `(sp-pair-overlay-face ((,class (:background ,base-4))))
    `(sp-show-pair-match-face ((,class (:inherit show-paren-match))))
@@ -793,23 +809,11 @@
    `(vundo-node ((,class (:foreground ,base-6))))
    `(vundo-highlight ((,class (:foreground ,blue))))
 
-   ;; which-func
-   `(which-func ((,class (:foreground ,blue))))
-
    ;; which-key
    `(which-key-key-face ((,class (:foreground ,green))))
    `(which-key-group-description-face ((,class (:foreground ,violet))))
    `(which-key-command-description-face ((,class (:foreground ,blue))))
    `(which-key-local-map-description-face ((,class (:foreground ,magenta))))
-
-   ;; whitespace
-   `(whitespace-empty ((,class (:background ,base-3))))
-   `(whitepsace-space ((,class (:foreground ,base-4))))
-   `(whitespace-tab ((,class (:background ,base-3 :foreground ,base-4))))
-   `(whitespace-newline ((,class (:foreground ,base-4))))
-   `(whitespace-indentation ((,class (:background ,base-5 :foreground ,base-3))))
-   `(whitespace-trailing ((,class (:inherit trailing-whitespace))))
-   `(whitespace-line ((,class (:background ,base-0 :foreground ,red :weight bold))))
 
    ;; yasnippet
    `(yas-field-highlight-face ((,class (:inherit match))))))
