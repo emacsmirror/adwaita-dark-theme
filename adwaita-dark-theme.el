@@ -157,12 +157,12 @@
    `(fringe ((,class (:inherit 'default :foreground ,base-4))))
    `(region ((,class (:background ,base-4 :foreground nil :distant-foreground ,fg))))
    `(highlight ((,class (:background ,blue :foreground ,base-0 :distant-foreground ,base-8))))
+   `(lazy-highlight ((,class (:inherit 'highlight))))
    `(cursor ((,class (:background ,fg))))
    `(shadow ((,class (:foreground ,base-5))))
    `(minibuffer-prompt ((,class (:foreground ,base-7))))
    `(tooltip ((,class (:background ,base-3 :foreground ,fg))))
    `(secondary-selection ((,class (:background ,gray))))
-   `(lazy-highlight ((,class (:background ,dark-blue :foreground ,base-8 :distant-foreground ,base-0 :weight bold))))
    `(fill-column-indicator ((,class (:foreground ,base-3))))
    `(match ((,class (:background ,base-0 :foreground ,green :weight bold))))
    `(trailing-whitespace ((,class (:background ,red))))
@@ -355,7 +355,7 @@
    `(ido-virtual ((,class (:foreground ,base-5))))
 
    ;; isearch
-   `(isearch ((,class (:background ,blue :foreground ,base-0 :weight bold))))
+   `(isearch ((,class (:inherit 'highlight))))
 
    ;; line-number
    `(line-number ((,class (:inherit 'default
