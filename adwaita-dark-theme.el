@@ -561,14 +561,11 @@
    `(helm-swoop-target-word-face ((,class (:inherit bold :foreground ,green))))
    `(helm-swoop-target-number-face ((,class (:foreground ,base-5))))
 
-   ;; highlight-indentation-mode
+   ;; highlight-indentation
    `(highlight-indentation-face ((,class (:inherit hl-line))))
    `(highlight-indentation-current-column-face ((,class (:background ,base-1))))
    `(highlight-indentation-guides-odd-face ((,class (:inherit highlight-indentation-face))))
    `(highlight-indentation-guides-even-face ((,class (:inherit highlight-indentation-face))))
-
-   ;; hlinum
-   `(linum-highlight-face ((,class (:foreground ,fg :distant-foreground nil :weight normal))))
 
    ;; hl-todo
    `(hl-todo ((,class (:foreground ,yellow :weight bold))))
@@ -761,17 +758,6 @@
    `(swiper-match-face-2 ((,class (:inherit unspecified :background ,orange :foreground ,base-0 :weight bold))))
    `(swiper-match-face-3 ((,class (:inherit unspecified :background ,magenta :foreground ,base-0 :weight bold))))
    `(swiper-match-face-4 ((,class (:inherit unspecified :background ,green :foreground ,base-0 :weight bold))))
-
-   ;; tabbar
-   `(tabbar-default ((,class (:background ,bg :foreground ,bg :height 1.0))))
-   `(tabbar-highlight ((,class (:background ,dark-blue :foreground ,fg :distant-foreground ,bg))))
-   `(tabbar-button ((,class (:background ,bg :foreground ,fg))))
-   `(tabbar-button-highlight ((,class (:inherit tabbar-button :inverse-video t))))
-   `(tabbar-modified ((,class (:inherit tabbar-default :foreground ,red :weight bold))))
-   `(tabbar-unselected ((,class (:inherit tabbar-default :foreground ,base-5))))
-   `(tabbar-unselected-modified ((,class (:inherit tabbar-modified))))
-   `(tabbar-selected ((,class (:inherit tabbar-default :background ,bg-alt :foreground ,fg :weight bold))))
-   `(tabbar-selected-modified ((,class (:inherit tabbar-selected :foreground ,green))))
 
    ;; transient
    `(transient-heading ((,class (:foreground ,base-8 :weight bold))))
