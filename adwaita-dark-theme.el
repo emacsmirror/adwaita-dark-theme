@@ -137,22 +137,22 @@
 
        ;; Background colors
        ;; [True color | 256-compatible]
-       (bg (if true-color-available-p "#1e1e1e" "gray12"))     ; #1f1f1f
-       (bg-alt (if true-color-available-p "#242424" "gray14")) ; #242424
-       (base-0 (if true-color-available-p "#202020" "gray13")) ; #212121
-       (base-1 (if true-color-available-p "#262626" "gray15")) ; #262626
-       (base-2 (if true-color-available-p "#292929" "gray16")) ; #292929
-       (base-3 (if true-color-available-p "#303030" "gray19")) ; #303030
-       (base-4 (if true-color-available-p "#454545" "gray27")) ; #454545
-       (base-5 (if true-color-available-p "#656565" "gray40")) ; #666666
-       (base-6 (if true-color-available-p "#7b7b7b" "gray48")) ; #7a7a7a
-       (base-7 (if true-color-available-p "#a5a5a5" "gray65")) ; #a6a6a6
-       (base-8 (if true-color-available-p "#dfdfdf" "gray87")) ; #dedede
-       (fg (if true-color-available-p "#deddda" "gray86"))     ; #dbdbdb
-       (fg-alt (if true-color-available-p "#77767b" "gray47")) ; #787878
+       (bg (if true-color-available-p "#1e1e1e" "gray12"))             ; #1f1f1f
+       (bg-alt (if true-color-available-p "#242424" "gray14"))         ; #242424
+       (base-0 (if true-color-available-p "#202020" "gray13"))         ; #212121
+       (base-1 (if true-color-available-p "#262626" "gray15"))         ; #262626
+       (base-2 (if true-color-available-p "#292929" "gray16"))         ; #292929
+       (base-3 (if true-color-available-p "#303030" "gray19"))         ; #303030
+       (base-4 (if true-color-available-p "#454545" "gray27"))         ; #454545
+       (base-5 (if true-color-available-p "#656565" "gray40"))         ; #666666
+       (base-6 (if true-color-available-p "#7b7b7b" "gray48"))         ; #7a7a7a
+       (base-7 (if true-color-available-p "#a5a5a5" "gray65"))         ; #a6a6a6
+       (base-8 (if true-color-available-p "#dfdfdf" "gray87"))         ; #dedede
 
        ;; Foreground colors
        ;; [True color | 256-compatible]
+       (fg (if true-color-available-p "#deddda" "gray86"))             ; #dbdbdb
+       (fg-alt (if true-color-available-p "#77767b" "gray47"))         ; #787878
        (gray (if true-color-available-p "#3d3846" "gray23"))           ; #3b3b3b
        (red (if true-color-available-p "#ff6c6b" "indianred2"))        ; #ee6363
        (orange (if true-color-available-p "#ffa348" "orange2"))        ; #ee9a00
