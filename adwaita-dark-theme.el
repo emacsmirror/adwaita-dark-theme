@@ -156,7 +156,7 @@
    `(success ((,class (:foreground ,green))))
    `(fringe ((,class (:inherit default :foreground ,base-4))))
    `(region ((,class (:background ,base-4 :foreground nil :distant-foreground ,fg))))
-   `(highlight ((,class (:background ,orange :foreground ,base-0 :distant-foreground ,base-8))))
+   `(highlight ((,class (:background ,blue :foreground ,base-0 :distant-foreground ,base-8))))
    `(lazy-highlight ((,class (:inherit highlight))))
    `(cursor ((,class (:background ,fg))))
    `(shadow ((,class (:foreground ,base-5))))
