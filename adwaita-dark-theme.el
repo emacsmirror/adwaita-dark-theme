@@ -730,6 +730,7 @@
    `(paren-face-no-match ((,class (:inherit show-paren-mismatch))))
 
    ;; mood-line
+   `(mood-line-buffer-status-narrowed ((,class (:foreground ,base-7))))
    `(mood-line-status-info ((,class (:foreground ,teal))))
 
    ;; multiple-cursors
