@@ -756,8 +756,8 @@
 
    ;; popup
    `(popup-face ((,class (:inherit tooltip))))
-   `(popup-tip-face ((,class (:inherit popup-face :background ,base-0 :foreground ,violet))))
-   `(popup-selection-face ((,class (:background ,base-5))))
+   `(popup-tip-face ((,class (:inherit popup-face :foreground ,base-7))))
+   `(popup-selection-face ((,class (:background ,base-4))))
 
    ;; rainbow-delimiters
    `(rainbow-delimiters-depth-1-face ((,class (:foreground ,(if adwaita-dark-theme-gray-rainbow-delimiters base-7 blue)))))
