@@ -905,7 +905,8 @@
 (defun adwaita-dark-theme-neotree-configuration-enable ()
   "Enable custom adwaita-dark configuration for use with neotree."
   (advice-add #'neo-global--select-window :after (lambda ()
-                                                   (setq-local line-spacing 3
+                                                   (setq-local cursor-type nil
+                                                               line-spacing 0.25
                                                                mode-line-format nil
                                                                auto-hscroll-mode nil
                                                                buffer-display-table (make-display-table))
