@@ -280,7 +280,7 @@
    ;; completions
    `(completions-annotations ((,class (:inherit shadow))))
    `(completions-common-part ((,class (:foreground ,blue))))
-   `(completions-first-difference ((,class ,(unless adwaita-dark-theme-no-completions-first-difference `(:foreground ,base-7)))))
+   `(completions-first-difference ((,class ,(unless adwaita-dark-theme-no-completions-first-difference '(:weight bold)))))
 
    ;; custom
    `(custom-button ((,class (:background ,base-3 :foreground ,fg :box (:line-width 3 :color ,base-3)))))
