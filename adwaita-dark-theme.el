@@ -113,6 +113,11 @@
 ;; Variable definitions
 ;; ---------------------------------- ;;
 
+(defcustom adwaita-dark-theme-no-completions-first-difference nil
+  "When non-nil, `completions-first-difference' will be set to an empty face."
+  :group 'adwaita-dark-theme
+  :type 'boolean)
+
 (defcustom adwaita-dark-theme-gray-rainbow-delimiters nil
   "When non-nil, `rainbow-delimiters-mode' faces will be the same shade of gray."
   :group 'adwaita-dark-theme
@@ -270,6 +275,7 @@
    ;; completions
    `(completions-annotations ((,class (:inherit shadow))))
    `(completions-common-part ((,class (:foreground ,blue))))
+   `(completions-first-difference ((,class ,(unless adwaita-dark-theme-no-completions-first-difference `(:foreground ,base-7)))))
 
    ;; custom
    `(custom-button ((,class (:background ,base-3 :foreground ,fg :box (:line-width 3 :color ,base-3)))))
