@@ -70,8 +70,6 @@
 (defvar flymake-warning-bitmap)
 (defvar flymake-note-bitmap)
 
-(defvar neotree-dir-button-keymap)
-(defvar neotree-file-button-keymap)
 (defvar neo-global--window)
 
 ;; ---------------------------------- ;;
@@ -80,13 +78,19 @@
 
 (declare-function flycheck-redefine-standard-error-levels "flycheck" (&optional margin-str fringe-bitmap))
 
+(declare-function neo-open-dir "neotree" (full-path &optional arg))
+(declare-function neo-open-file "neotree" (full-path &optional arg))
+(declare-function neo-filepath-hidden-p "neotree" (node))
 (declare-function neo-path--file-short-name "neotree" (file))
-(declare-function neo-buffer--node-list-set "neotree" (line-num path))
+(declare-function neo-global--create-window "neotree" ())
 (declare-function neo-buffer--newline-and-begin "neotree" ())
-(declare-function neo-global--select-window "neotree" ())
+(declare-function neo-buffer--node-list-set "neotree" (line-num path))
 (declare-function neo-buffer--insert-root-entry "neotree" (node))
 (declare-function neo-buffer--insert-dir-entry "neotree" (node depth expanded))
 (declare-function neo-buffer--insert-file-entry "neotree" (node depth))
+(declare-function neotree-hidden-file-toggle "neotree" ())
+(declare-function neotree-select-up-node "neotree" ())
+(declare-function neotree-change-root "neotree" ())
 
 ;; -------------------------------------------------------------------------- ;;
 ;;
@@ -870,7 +874,7 @@
                  'face '(nil)
                  'follow-link t
                  'neo-full-path (directory-file-name node)
-                 'keymap (let ((button-keymap (copy-keymap neotree-dir-button-keymap)))
+                 'keymap (let ((button-keymap (make-sparse-keymap)))
                            (define-key button-keymap [mouse-2] (lambda ()
                                                                  (interactive)
                                                                  (neotree-hidden-file-toggle)))
@@ -906,6 +910,7 @@
                              (define-key button-keymap [mouse-2] (lambda ()
                                                                    (interactive)
                                                                    (let ((neo-click-changes-root nil))
+                                                                     (ignore neo-click-changes-root)
                                                                      (neo-open-dir node))))
                              (define-key button-keymap [mouse-3] (lambda ()
                                                                    (interactive)
