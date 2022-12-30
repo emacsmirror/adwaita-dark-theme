@@ -752,13 +752,13 @@
 
    ;; neotree
    `(neo-root-dir-face ((,class (:foreground ,base-8 :weight bold))))
+   `(neo-dir-link-face ((,class (:foreground ,base-7))))
    `(neo-file-link-face ((,class (:foreground ,fg))))
-   `(neo-dir-link-face ((,class (:foreground ,fg :foreground ,base-7))))
-   `(neo-expand-btn-face ((,class (:foreground ,blue))))
-   `(neo-vc-edited-face ((,class (:foreground ,yellow))))
+   `(neo-expand-btn-face ((,class (:foreground ,base-4))))
+   `(neo-vc-edited-face ((,class (:foreground ,orange))))
    `(neo-vc-added-face ((,class (:foreground ,green))))
    `(neo-vc-removed-face ((,class (:foreground ,red :strike-through t))))
-   `(neo-vc-ignored-face ((,class (:foreground ,base-5))))
+   `(neo-vc-ignored-face ((,class (:foreground ,base-6))))
 
    ;; nlinum
    `(nlinum-current-line ((,class (:inherit line-number-current-line))))
@@ -856,57 +856,87 @@
 ;; Internal functions
 ;; ---------------------------------- ;;
 
-(defun adwaita-dark-theme--neotree-hidden-dir-p (dirname)
-  "Return non-nil if DIRNAME should be considered hidden."
-  (string-prefix-p "." dirname))
-
-(defun adwaita-dark-theme--neotree-hidden-file-p (filename)
-  "Return non-nil if FILENAME should be considered hidden."
-  (or (string-prefix-p "." filename)
-      (and (string-prefix-p "#" filename)
-           (string-suffix-p "#" filename))))
-
 (defun adwaita-dark-theme--neotree-insert-root (node)
   "Insert root directory NODE at point."
-  (insert " "
-          (propertize
-           "🖿"
-           'face '(:inherit (neo-root-dir-face) :height 1.5))
-          (propertize
-           (concat " " (or (neo-path--file-short-name node) "-") " \n")
-           'face '(:inherit (neo-root-dir-face) :height 1.0))))
+  (insert " ")
+  (insert-button (concat ""
+                         (propertize "🖿"
+                                     'face '(:inherit (neo-root-dir-face) :height 1.5))
+                         " "
+                         (propertize (or (neo-path--file-short-name node) "-")
+                                     'face 'neo-root-dir-face)
+                         (propertize " "
+                                     'display `((space :align-to (- right 0 1)))))
+                 'face '(nil)
+                 'follow-link t
+                 'neo-full-path (neo-path--updir node)
+                 'keymap (let ((button-keymap (make-sparse-keymap)))
+                           (define-key button-keymap [mouse-2] (lambda ()
+                                                                 (interactive)
+                                                                 (neotree-hidden-file-toggle)))
+                           (define-key button-keymap [mouse-3] (lambda ()
+                                                                 (interactive)
+                                                                 (mouse-set-point last-input-event)
+                                                                 (neotree-change-root)))
+                           button-keymap)
+                 'help-echo "mouse-1: Toggle hidden files\nmouse-3: Move root up one directory")
+  (neo-buffer--newline-and-begin))
 
 (defun adwaita-dark-theme--neotree-insert-dir (node depth expanded)
   "Insert directory NODE with indentation level DEPTH and state EXPANDED at point."
   (let ((short-name (neo-path--file-short-name node))
-        (face '(:inherit (neo-dir-link-face))))
-    (when (adwaita-dark-theme--neotree-hidden-dir-p short-name)
-      (setq face '(:inherit (shadow neo-dir-link-face))))
-    (insert-char ?\s (* (- depth 1) 2))
-    (insert (propertize
-             (if expanded " ▾ " " ▸ ")
-             'face face))
-    (insert-button (concat "🖿 " short-name)
+        (is-hidden (neo-filepath-hidden-p node)))
+    (insert " ")
+    (insert-button (concat (make-string (- (* depth 2) 1) ?\s)
+                           (propertize (concat "🖿 "
+                                               short-name)
+                                       'face (if is-hidden
+                                                 '(:inherit shadow neo-dir-link-face)
+                                               'neo-dir-link-face))
+                           (propertize " "
+                                       'display `((space :align-to (- right 0 3))))
+                           (propertize (if expanded "◢" " ")
+                                       'face '(:inherit neo-expand-btn-face :height 1.2))
+                           (propertize " "
+                                       'display `((space :align-to (- right 0 1)))))
+                   'face '(nil)
                    'follow-link t
-                   'face face
                    'neo-full-path node
-                   'keymap neotree-dir-button-keymap)
+                   'keymap (let ((button-keymap (make-sparse-keymap)))
+                             (define-key button-keymap [mouse-2] (lambda ()
+                                                                   (interactive)
+                                                                   (let ((neo-click-changes-root nil))
+                                                                     (neo-open-dir node))))
+                             (define-key button-keymap [mouse-3] (lambda ()
+                                                                   (interactive)
+                                                                   (mouse-set-point last-input-event)
+                                                                   (neotree-change-root)))
+                             button-keymap)
+                   'help-echo "mouse-1: Fold/unfold directory\nmouse-3: Change root to directory")
+
     (neo-buffer--node-list-set nil node)
     (neo-buffer--newline-and-begin)))
 
 (defun adwaita-dark-theme--neotree-insert-file (node depth)
   "Insert file NODE with indentation level DEPTH at point."
-  (let ((short-name (neo-path--file-short-name node))
-        (face '(:inherit (neo-file-link-face))))
-    (when (adwaita-dark-theme--neotree-hidden-file-p short-name)
-      (setq face '(:inherit shadow neo-file-link-face)))
-    (insert-char ?\s (* (- depth 1) 2))
-    (insert (propertize "   " 'face face))
-    (insert-button short-name
+  (let* ((short-name (neo-path--file-short-name node))
+         (is-hidden (neo-filepath-hidden-p node)))
+    (insert " ")
+    (insert-button (concat (make-string (- (* depth 2) 1) ?\s)
+                           short-name
+                           (propertize " "
+                                       'display `((space :align-to (- right 0 1)))))
                    'follow-link t
-                   'face face
+                   'face (if is-hidden
+                             '(:inherit shadow neo-file-link-face)
+                           'neo-file-link-face)
                    'neo-full-path node
-                   'keymap neotree-file-button-keymap)
+                   'keymap (let ((button-keymap (make-sparse-keymap)))
+                             (define-key button-keymap [mouse-2] (lambda ()
+                                                                   (interactive)
+                                                                   (neo-open-file node)))
+                             button-keymap)
+                   'help-echo "mouse-1: Open file")
     (neo-buffer--node-list-set nil node)
     (neo-buffer--newline-and-begin)))
 
@@ -917,15 +947,17 @@
 ;;;###autoload
 (defun adwaita-dark-theme-neotree-configuration-enable ()
   "Enable custom adwaita-dark configuration for use with neotree."
-  (advice-add #'neo-global--select-window :after (lambda ()
+  (advice-add #'neo-global--create-window :after (lambda ()
                                                    (setq-local cursor-type nil
                                                                line-spacing 0.25
                                                                mode-line-format nil
                                                                auto-hscroll-mode nil
                                                                buffer-display-table (make-display-table))
-                                                   (visual-line-mode -1)
+                                                   (set-display-table-slot buffer-display-table
+                                                                           'truncation
+                                                                           (make-glyph-code 8230 'fringe))
                                                    (set-window-fringes neo-global--window 0 0)
-                                                   (set-display-table-slot buffer-display-table 'truncation 8230)))
+                                                   (visual-line-mode -1)))
   (advice-add #'neo-buffer--insert-root-entry :override #'adwaita-dark-theme--neotree-insert-root)
   (advice-add #'neo-buffer--insert-dir-entry :override #'adwaita-dark-theme--neotree-insert-dir)
   (advice-add #'neo-buffer--insert-file-entry :override #'adwaita-dark-theme--neotree-insert-file))
