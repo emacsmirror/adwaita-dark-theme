@@ -118,6 +118,11 @@
   :group 'adwaita-dark-theme
   :type 'boolean)
 
+(defcustom adwaita-dark-theme-bold-vertico-current nil
+  "When non-nil, `vertico-current' will be bolded to increase contrast."
+  :group 'adwaita-dark-theme
+  :type 'boolean)
+
 (defcustom adwaita-dark-theme-gray-rainbow-delimiters nil
   "When non-nil, `rainbow-delimiters-mode' faces will be the same shade of gray."
   :group 'adwaita-dark-theme
@@ -822,7 +827,7 @@
    `(undo-tree-visualizer-register-face ((,class (:foreground ,yellow))))
 
    ;; vertico
-   `(vertico-current ((,class (:background ,base-3 :weight bold))))
+   `(vertico-current ((,class (:background ,base-3 :bold ,(when adwaita-dark-theme-bold-vertico-current 'bold)))))
    `(vertico-multiline ((,class (:foreground ,base-6))))
 
    ;; vundo
