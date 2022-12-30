@@ -823,6 +823,7 @@
 
    ;; vertico
    `(vertico-current ((,class (:background ,base-3 :weight bold))))
+   `(vertico-multiline ((,class (:foreground ,base-6))))
 
    ;; vundo
    `(vundo-default ((,class (:background ,bg-alt))))
