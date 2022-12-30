@@ -99,7 +99,7 @@
 ;; ---------------------------------- ;;
 
 (deftheme adwaita-dark
-  "A dark color scheme inspired by the libadwaita colors.")
+  "A dark color scheme inspired by Adwaita.")
 
 ;; ---------------------------------- ;;
 ;; Group definition
