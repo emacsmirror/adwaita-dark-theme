@@ -748,6 +748,7 @@
    ;; mood-line
    `(mood-line-buffer-status-narrowed ((,class (:foreground ,base-7))))
    `(mood-line-status-info ((,class (:foreground ,teal))))
+   `(mood-line-unimportant ((,class (:foreground ,base-5))))
 
    ;; multiple-cursors
    `(mc/cursor-face ((,class (:inherit cursor :background ,fg-alt))))
