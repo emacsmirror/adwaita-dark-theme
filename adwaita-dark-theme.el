@@ -789,6 +789,13 @@
    `(rainbow-delimiters-unmatched-face ((,class (:foreground ,red :weight ultra-bold))))
    `(rainbow-delimiters-mismatched-face ((,class (:inherit rainbow-delimiters-unmatched-face))))
 
+   ;; sly
+   `(sly-action-face ((,class (:inherit link))))
+   `(sly-mrepl-prompt-face ((,class (:inherit font-lock-type-face))))
+   `(sly-mrepl-output-face ((,class (:inherit font-lock-doc-face))))
+   `(sly-mrepl-note-face ((,class (:inherit font-lock-comment-face))))
+   `(sly-db-section-face ((,class (:foreground ,base-8 :weight bold :box ,(when flat-button-available-p '(:line-width 4 :style flat-button))))))
+
    ;; smartparens
    `(sp-pair-overlay-face ((,class (:background ,base-4))))
    `(sp-show-pair-match-face ((,class (:inherit show-paren-match))))
