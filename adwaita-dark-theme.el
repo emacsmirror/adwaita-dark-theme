@@ -230,7 +230,6 @@
    `(font-lock-string-face ((,class (:foreground ,teal))))
    `(font-lock-warning-face ((,class (:inherit warning))))
    `(font-lock-preprocessor-face ((,class (:foreground ,dark-orange))))
-   `(font-lock-preprocessor-char-face ((,class (:foreground ,violet :weight bold))))
    `(font-lock-negation-char-face ((,class (:foreground unspecified :weight bold))))
    `(font-lock-regexp-grouping-backslash ((,class (:foreground ,teal :weight bold))))
    `(font-lock-regexp-grouping-construct ((,class (:foreground ,teal :weight bold))))
