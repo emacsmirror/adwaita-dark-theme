@@ -153,6 +153,7 @@
        ;; [True color | 256-compatible]
        (bg (if true-color-available-p "#1e1e1e" "gray12"))               ; #1f1f1f
        (bg-alt (if true-color-available-p "#242424" "gray14"))           ; #242424
+       (bg-osd (if true-color-available-p "#101010" "gray6"))            ; #0f0f0f
        (base-0 (if true-color-available-p "#202020" "gray13"))           ; #212121
        (base-1 (if true-color-available-p "#262626" "gray15"))           ; #262626
        (base-2 (if true-color-available-p "#292929" "gray16"))           ; #292929
@@ -202,7 +203,7 @@
    `(cursor ((,class (:background ,fg))))
    `(shadow ((,class (:foreground ,base-5))))
    `(minibuffer-prompt ((,class (:foreground ,base-7))))
-   `(tooltip ((,class (:background ,base-3 :foreground ,fg))))
+   `(tooltip ((,class (:background ,bg-osd :foreground ,fg))))
    `(secondary-selection ((,class (:background ,gray))))
    `(fill-column-indicator ((,class (:foreground ,base-3))))
    `(match ((,class (:foreground ,green :weight bold))))
@@ -512,15 +513,15 @@
    `(bufler-buffer-special ((,class (:inherit font-lock-builtin-face))))
 
    ;; company
-   `(company-tooltip ((,class (:inherit tooltip))))
+   `(company-tooltip ((,class (:background ,base-3 :foreground ,base-8))))
    `(company-tooltip-common ((,class (:foreground ,blue :distant-foreground ,base-0 :weight bold))))
    `(company-tooltip-search ((,class (:background ,blue :foreground ,bg :distant-foreground ,fg :weight bold))))
    `(company-tooltip-search-selection ((,class (:background ,cyan :weight bold))))
    `(company-tooltip-selection ((,class (:background ,dark-blue :weight bold))))
    `(company-tooltip-mouse ((,class (:background ,magenta :foreground ,bg :distant-foreground ,fg))))
    `(company-tooltip-annotation ((,class (:foreground ,violet :distant-foreground ,bg))))
-   `(company-scrollbar-bg ((,class (:inherit tooltip))))
-   `(company-scrollbar-fg ((,class (:background ,blue))))
+   `(company-scrollbar-bg ((,class (:background ,base-3))))
+   `(company-scrollbar-fg ((,class (:background ,base-5))))
    `(company-preview ((,class (:foreground ,base-5))))
    `(company-preview-common ((,class (:background ,base-3 :foreground ,blue))))
    `(company-preview-search ((,class (:inherit company-tooltip-search))))
@@ -767,8 +768,8 @@
    `(nlinum-relative-current-face ((,class (:inherit line-number-current-line))))
 
    ;; popup
-   `(popup-face ((,class (:inherit tooltip))))
-   `(popup-tip-face ((,class (:inherit popup-face :foreground ,base-7))))
+   `(popup-face ((,class (:background ,base-3 :foreground ,base-8))))
+   `(popup-tip-face ((,class (:inherit tooltip))))
    `(popup-selection-face ((,class (:background ,base-4))))
 
    ;; rainbow-delimiters
