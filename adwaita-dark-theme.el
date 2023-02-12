@@ -416,7 +416,7 @@
 
    ;; line-number
    `(line-number ((,class (:inherit default :foreground ,base-5))))
-   `(line-number-current-line ((,class (:inherit (hl-line default) :foreground ,base-7 :weight bold))))
+   `(line-number-current-line ((,class (:inherit (hl-line default) :foreground ,base-7))))
 
    ;; linum
    `(linum ((,class (:inherit line-number))))
