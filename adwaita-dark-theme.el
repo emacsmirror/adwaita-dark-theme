@@ -512,6 +512,24 @@
    `(bufler-path ((,class (:inherit font-lock-string-face))))
    `(bufler-buffer-special ((,class (:inherit font-lock-builtin-face))))
 
+   ;; cider
+   `(cider-fringe-good-face ((,class (:foreground ,green))))
+   `(cider-result-overlay-face ((,class (:foreground ,base-4))))
+   `(cider-error-overlay-face ((,class (:foreground ,red))))
+   `(cider-error-highlight-face ((,class (:underline (:color ,red)))))
+   `(cider-warning-highlight-face ((,class (:underline (:color ,yellow)))))
+   `(cider-deprecated-face ((,class (:inherit shadow :strike-through t))))
+   `(cider-repl-stdout-face ((,class (:inherit font-lock-doc-face))))
+   `(cider-repl-stderr-face ((,class (:inherit error))))
+   `(cider-test-error-face ((,class (:foreground ,dark-orange))))
+   `(cider-test-failure-face ((,class (:foreground ,red))))
+   `(cider-test-success-face ((,class (:foreground ,green))))
+   `(cider-stacktrace-fn-face ((,class (:foreground ,fg :weight bold))))
+   `(cider-stacktrace-error-class-face ((,class (:foreground ,red :weight bold))))
+   `(cider-stacktrace-error-message-face ((,class (:foreground ,fg))))
+   `(cider-stacktrace-filter-active-face ((,class (:inherit link))))
+   `(cider-stacktrace-filter-inactive-face ((,class (:inherit (shadow link)))))
+
    ;; company
    `(company-tooltip ((,class (:background ,base-3 :foreground ,base-8))))
    `(company-tooltip-common ((,class (:foreground ,blue :distant-foreground ,base-0 :weight bold))))
