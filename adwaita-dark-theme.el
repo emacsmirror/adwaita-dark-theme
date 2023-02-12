@@ -414,12 +414,8 @@
    `(isearch-fail ((,class (:foreground ,base-7 :strike-through t))))
 
    ;; line-number
-   `(line-number ((,class (:inherit default
-                                    :foreground ,base-5 :distant-foreground nil
-                                    :weight normal :italic nil :underline nil :strike-through nil))))
-   `(line-number-current-line ((,class (:inherit hl-line default
-                                                 :foreground ,fg :distant-foreground nil
-                                                 :weight normal :italic nil :underline nil :strike-through nil))))
+   `(line-number ((,class (:inherit default :foreground ,base-5))))
+   `(line-number-current-line ((,class (:inherit (hl-line default) :foreground ,base-7 :weight bold))))
 
    ;; linum
    `(linum ((,class (:inherit line-number))))
