@@ -151,7 +151,7 @@
 
        ;; Background colors
        ;; [True color | 256-compatible]
-       (bg (if true-color-available-p "#1e1e1e" "gray12"))               ; #1f1f1f
+       (bg (if true-color-available-p "#1c1c1c" "gray11"))               ; #1c1c1c
        (bg-alt (if true-color-available-p "#242424" "gray14"))           ; #242424
        (bg-osd (if true-color-available-p "#101010" "gray6"))            ; #0f0f0f
        (base-0 (if true-color-available-p "#202020" "gray13"))           ; #212121
