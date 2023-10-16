@@ -380,7 +380,7 @@
    ;; flymake
    `(flymake-error ((,class (:underline (:color ,red)))))
    `(flymake-note ((,class (:underline (:color ,green)))))
-   `(flymake-warning ((,class (:underline (:color ,orange)))))
+   `(flymake-warning ((,class (:underline (:color ,yellow)))))
 
    ;; flyspell
    `(flyspell-incorrect ((,class (:inherit unspecified :underline (:color ,red)))))
