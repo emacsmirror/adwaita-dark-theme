@@ -215,7 +215,7 @@
    `(link-visited ((,class (:foreground ,magenta :underline t :weight bold))))
    `(escape-glyph ((,class (:foreground ,pink))))
    `(homoglyph ((,class (:inherit escape-glyph))))
-   `(widget-single-line-field ((,class :background ,base-5)))
+   `(widget-single-line-field ((,class (:background ,base-5))))
    `(widget-field ((,class (:inherit widget-single-line-field :extend t))))
 
    ;; font-lock
