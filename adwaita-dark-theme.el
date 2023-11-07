@@ -785,6 +785,12 @@
    `(nlinum-hl-face ((,class (:inherit line-number-current-line))))
    `(nlinum-relative-current-face ((,class (:inherit line-number-current-line))))
 
+   ;; orderless
+   `(orderless-match-face-0 ((,class (:inherit completions-common-part))))
+   `(orderless-match-face-1 ((,class (:inherit orderless-match-face-0))))
+   `(orderless-match-face-2 ((,class (:inherit orderless-match-face-0))))
+   `(orderless-match-face-3 ((,class (:inherit orderless-match-face-0))))
+
    ;; popup
    `(popup-face ((,class (:background ,base-3 :foreground ,base-8))))
    `(popup-tip-face ((,class (:inherit tooltip))))
