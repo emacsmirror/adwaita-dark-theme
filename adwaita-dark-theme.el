@@ -833,6 +833,11 @@
    `(swiper-match-face-3 ((,class (:background ,magenta :foreground ,base-0 :weight bold))))
    `(swiper-match-face-4 ((,class (:background ,green :foreground ,base-0 :weight bold))))
 
+   ;; tempel
+   `(tempel-form ((,class (:foreground unspecified))))
+   `(tempel-field ((,class (:foreground unspecified))))
+   `(tempel-default ((,class (:foreground unspecified :underline t))))
+
    ;; transient
    `(transient-heading ((,class (:foreground ,base-8 :weight bold))))
    `(transient-key ((,class (:inherit help-key-binding))))
