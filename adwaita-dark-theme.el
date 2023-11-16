@@ -562,6 +562,10 @@
    `(diff-hl-delete ((,class (:foreground ,red))))
    `(diff-hl-insert ((,class (:foreground ,green))))
 
+   ;; eldoc-box
+   `(eldoc-box-body ((,class (:inherit (tooltip variable-pitch-text)))))
+   `(eldoc-box-border ((,class (:background ,base-3))))
+
    ;; fic-mode
    `(fic-face ((,class (:foreground ,yellow :weight bold))))
 
