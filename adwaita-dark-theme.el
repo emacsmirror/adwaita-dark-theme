@@ -168,6 +168,7 @@
        ;; [True color | 256-compatible]
        (fg (if true-color-available-p "#deddda" "gray86"))               ; #dbdbdb
        (fg-alt (if true-color-available-p "#77767b" "gray47"))           ; #787878
+       (fg-osd (if true-color-available-p "#f0f0f0" "gray94"))           ; #f0f0f0
        (gray (if true-color-available-p "#3d3846" "gray23"))             ; #3b3b3b
        (red (if true-color-available-p "#ff6c6b" "indianred2"))          ; #ee6363
        (orange (if true-color-available-p "#ffa348" "orange2"))          ; #ee9a00
@@ -203,7 +204,7 @@
    `(cursor ((,class (:background ,fg))))
    `(shadow ((,class (:foreground ,base-5))))
    `(minibuffer-prompt ((,class (:foreground ,base-7))))
-   `(tooltip ((,class (:background ,bg-osd :foreground ,fg))))
+   `(tooltip ((,class (:background ,bg-osd :foreground ,fg-osd))))
    `(secondary-selection ((,class (:background ,gray))))
    `(fill-column-indicator ((,class (:foreground ,base-3))))
    `(match ((,class (:foreground ,green :weight bold))))
