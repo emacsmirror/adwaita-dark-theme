@@ -836,7 +836,7 @@
 
    ;; tempel
    `(tempel-form ((,class (:foreground unspecified))))
-   `(tempel-field ((,class (:foreground unspecified))))
+   `(tempel-field ((,class (:foreground unspecified :underline (:color ,base-5)))))
    `(tempel-default ((,class (:foreground unspecified :underline t))))
 
    ;; transient
