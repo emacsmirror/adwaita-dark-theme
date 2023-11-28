@@ -44,7 +44,7 @@ To enable custom fringe bitmaps for [flymake](https://www.emacswiki.org/emacs/Fl
 ## Feedback
 
 If you experience any issues with this package, please
-[open an issue](https://gitlab.com/jessieh/adwaita-dark-theme/issues/new)
+[open an issue](https://git.tty.dog/jessieh/adwaita-dark-theme/issues/new)
 on the issue tracker.
 
 Suggestions for improvements and feature requests are always appreciated, as well!
