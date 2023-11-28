@@ -132,9 +132,8 @@
   :group 'adwaita-dark-theme
   :type 'boolean)
 
-
 (defcustom adwaita-dark-theme-gray-outlines nil
-  "When non-nil, outline faces will be the same shade of gray."
+  "When non-nil, `outline-mode' faces will be alternating shades of gray."
   :group 'adwaita-dark-theme
   :type 'boolean)
 
