@@ -132,6 +132,12 @@
   :group 'adwaita-dark-theme
   :type 'boolean)
 
+
+(defcustom adwaita-dark-theme-gray-outlines nil
+  "When non-nil, outline faces will be the same shade of gray."
+  :group 'adwaita-dark-theme
+  :type 'boolean)
+
 ;; -------------------------------------------------------------------------- ;;
 ;;
 ;; Theme code
@@ -438,14 +444,14 @@
    `(message-cited-text ((,class (:foreground ,magenta))))
 
    ;; outline
-   `(outline-1 ((,class (:foreground ,base-6 :weight bold))))
-   `(outline-2 ((,class (:foreground ,base-7 :weight bold))))
-   `(outline-3 ((,class (:foreground ,base-6 :weight bold))))
-   `(outline-4 ((,class (:foreground ,base-5 :weight bold))))
-   `(outline-5 ((,class (:foreground ,base-6 :weight bold))))
-   `(outline-6 ((,class (:foreground ,base-7 :weight bold))))
-   `(outline-7 ((,class (:foreground ,base-6 :weight bold))))
-   `(outline-8 ((,class (:foreground ,base-5 :weight bold))))
+   `(outline-1 ((,class (:foreground ,(if adwaita-dark-theme-gray-outlines base-6 blue) :weight bold))))
+   `(outline-2 ((,class (:foreground ,(if adwaita-dark-theme-gray-outlines base-7 magenta) :weight bold))))
+   `(outline-3 ((,class (:foreground ,(if adwaita-dark-theme-gray-outlines base-6 green) :weight bold))))
+   `(outline-4 ((,class (:foreground ,(if adwaita-dark-theme-gray-outlines base-5 violet) :weight bold))))
+   `(outline-5 ((,class (:foreground ,(if adwaita-dark-theme-gray-outlines base-6 teal) :weight bold))))
+   `(outline-6 ((,class (:foreground ,(if adwaita-dark-theme-gray-outlines base-7 blue) :weight bold))))
+   `(outline-7 ((,class (:foreground ,(if adwaita-dark-theme-gray-outlines base-6 magenta) :weight bold))))
+   `(outline-8 ((,class (:foreground ,(if adwaita-dark-theme-gray-outlines base-5 green) :weight bold))))
 
    ;; pulse
    `(pulse-highlight-start-face ((,class (:background ,base-5 :extend t))))
