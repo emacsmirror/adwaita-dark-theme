@@ -117,6 +117,21 @@
 ;; Variable definitions
 ;; ---------------------------------- ;;
 
+(defcustom adwaita-dark-theme-pad-mode-line nil
+  "When non-nil, mode line faces will be padded similarly to GTK header bars."
+  :group 'adwaita-dark-theme
+  :type 'boolean)
+
+(defcustom adwaita-dark-theme-pad-tab-line nil
+  "When non-nil, `tab-line-mode' faces will be padded similarly to GTK header bars."
+  :group 'adwaita-dark-theme
+  :type 'boolean)
+
+(defcustom adwaita-dark-theme-pad-tab-bar nil
+  "When non-nil, `tab-bar-mode' faces will be padded similarly to GTK header bars."
+  :group 'adwaita-dark-theme
+  :type 'boolean)
+
 (defcustom adwaita-dark-theme-no-completions-first-difference nil
   "When non-nil, `completions-first-difference' will be set to an empty face."
   :group 'adwaita-dark-theme
@@ -242,8 +257,8 @@
    `(font-lock-regexp-grouping-construct ((,class (:foreground ,teal :weight bold))))
 
    ;; mode-line/header-line
-   `(mode-line ((,class (:background ,base-3 :foreground ,fg :box (:line-width ,mode-line-padding :color ,base-3)))))
-   `(mode-line-inactive ((,class (:background ,bg-alt :foreground ,base-5 :box (:line-width ,mode-line-padding :color ,bg-alt)))))
+   `(mode-line ((,class (:background ,base-3 :foreground ,fg :box ,(when adwaita-dark-theme-pad-mode-line `(:line-width ,mode-line-padding :color ,base-3))))))
+   `(mode-line-inactive ((,class (:background ,bg-alt :foreground ,base-5 :box ,(when adwaita-dark-theme-pad-mode-line `(:line-width ,mode-line-padding :color ,bg-alt))))))
    `(mode-line-emphasis ((,class (:foreground ,blue))))
    `(mode-line-highlight ((,class (:foreground ,fg))))
    `(mode-line-buffer-id ((,class (:foreground ,base-8 :weight bold))))
@@ -467,15 +482,15 @@
 
    ;; tab-line
    `(tab-line ((,class (:background ,bg-alt))))
-   `(tab-line-tab ((,class (:background ,bg :foreground ,fg :box (:line-width ,mode-line-padding :color ,bg)))))
-   `(tab-line-tab-inactive ((,class (:background ,bg-alt :foreground ,fg-alt :box (:line-width ,mode-line-padding :color ,bg-alt)))))
+   `(tab-line-tab ((,class (:background ,bg :foreground ,fg :box ,(when adwaita-dark-theme-pad-tab-line `(:line-width ,mode-line-padding :color ,bg))))))
+   `(tab-line-tab-inactive ((,class (:background ,bg-alt :foreground ,fg-alt :box ,(when adwaita-dark-theme-pad-tab-line `(:line-width ,mode-line-padding :color ,bg-alt))))))
    `(tab-line-tab-current ((,class (:inherit tab-line-tab))))
    `(tab-line-highlight ((,class (:inherit tab-line-tab))))
 
    ;; tab-bar
    `(tab-bar ((,class (:background ,bg-alt))))
-   `(tab-bar-tab ((,class (:background ,bg :foreground ,fg :box (:line-width ,mode-line-padding :color ,bg)))))
-   `(tab-bar-tab-inactive ((,class (:background ,bg-alt :foreground ,fg-alt :box (:line-width ,mode-line-padding :color ,bg-alt)))))
+   `(tab-bar-tab ((,class (:background ,bg :foreground ,fg :box ,(when adwaita-dark-theme-pad-tab-bar `(:line-width ,mode-line-padding :color ,bg))))))
+   `(tab-bar-tab-inactive ((,class (:background ,bg-alt :foreground ,fg-alt :box ,(when adwaita-dark-theme-pad-tab-bar `(:line-width ,mode-line-padding :color ,bg-alt))))))
 
    ;; which-func
    `(which-func ((,class (:inherit font-lock-function-name-face))))
