@@ -218,7 +218,7 @@
    `(warning ((,class (:foreground ,yellow))))
    `(success ((,class (:foreground ,green))))
    `(fringe ((,class (:inherit default :foreground ,base-4))))
-   `(region ((,class (:background ,base-4 :foreground unspecified :distant-foreground ,fg))))
+   `(region ((,class (:background ,base-4 :distant-foreground ,fg))))
    `(highlight ((,class (:background ,blue :foreground ,base-0 :distant-foreground ,base-8))))
    `(lazy-highlight ((,class (:inherit highlight))))
    `(cursor ((,class (:background ,fg))))
@@ -245,14 +245,14 @@
    `(font-lock-comment-face ((,class (:foreground ,base-5))))
    `(font-lock-comment-delimiter-face ((,class (:inherit font-lock-comment-face))))
    `(font-lock-constant-face ((,class (:foreground ,violet))))
-   `(font-lock-variable-name-face ((,class (:foreground unspecified))))
-   `(font-lock-function-name-face ((,class (:foreground unspecified))))
+   `(font-lock-variable-name-face ((,class ())))
+   `(font-lock-function-name-face ((,class ())))
    `(font-lock-keyword-face ((,class (:foreground ,orange :weight bold))))
    `(font-lock-type-face ((,class (:foreground ,teal :weight bold))))
    `(font-lock-string-face ((,class (:foreground ,teal))))
    `(font-lock-warning-face ((,class (:inherit warning))))
    `(font-lock-preprocessor-face ((,class (:foreground ,dark-orange))))
-   `(font-lock-negation-char-face ((,class (:foreground unspecified :weight bold))))
+   `(font-lock-negation-char-face ((,class (::weight bold))))
    `(font-lock-regexp-grouping-backslash ((,class (:foreground ,teal :weight bold))))
    `(font-lock-regexp-grouping-construct ((,class (:foreground ,teal :weight bold))))
 
@@ -404,7 +404,7 @@
    `(flymake-warning ((,class (:underline (:color ,yellow)))))
 
    ;; flyspell
-   `(flyspell-incorrect ((,class (:inherit unspecified :underline (:color ,red)))))
+   `(flyspell-incorrect ((,class (:underline (:color ,red)))))
 
    ;; gdb
    `(breakpoint-enabled ((,class (:foreground ,red))))
@@ -613,9 +613,9 @@
    `(git-gutter:deleted ((,class (:foreground ,red))))
 
    ;; git-gutter+
-   `(git-gutter+-modified ((,class (:background nil :foreground ,orange))))
-   `(git-gutter+-added ((,class (:background nil :foreground ,green))))
-   `(git-gutter+-deleted ((,class (:background nil :foreground ,red))))
+   `(git-gutter+-modified ((,class (:foreground ,orange))))
+   `(git-gutter+-added ((,class (:foreground ,green))))
+   `(git-gutter+-deleted ((,class (:foreground ,red))))
 
    ;; git-gutter-fringe
    `(git-gutter-fr:modified ((,class (:inherit git-gutter:modified))))
@@ -662,8 +662,8 @@
    `(ido-vertical-match-face ((,class (:foreground ,blue :underline nil))))
 
    ;; ivy
-   `(ivy-current-match ((,class (:background ,base-4 :distant-foreground nil))))
-   `(ivy-minibuffer-match-face-1 ((,class (:background nil :foreground ,gray :weight light))))
+   `(ivy-current-match ((,class (:background ,base-4))))
+   `(ivy-minibuffer-match-face-1 ((,class (:foreground ,gray :weight light))))
    `(ivy-minibuffer-match-face-2 ((,class (:inherit ivy-minibuffer-match-face-1 :background ,base-1 :foreground ,magenta :weight semi-bold))))
    `(ivy-minibuffer-match-face-3 ((,class (:inherit ivy-minibuffer-match-face-2 :foreground ,green :weight semi-bold))))
    `(ivy-minibuffer-match-face-4 ((,class (:inherit ivy-minibuffer-match-face-2 :foreground ,yellow :weight semi-bold))))
@@ -859,9 +859,9 @@
    `(swiper-match-face-4 ((,class (:background ,green :foreground ,base-0 :weight bold))))
 
    ;; tempel
-   `(tempel-form ((,class (:foreground unspecified))))
-   `(tempel-field ((,class (:foreground unspecified :underline (:color ,base-5)))))
-   `(tempel-default ((,class (:foreground unspecified :underline t))))
+   `(tempel-form ((,class ())))
+   `(tempel-field ((,class (:underline (:color ,base-5)))))
+   `(tempel-default ((,class (:underline t))))
 
    ;; transient
    `(transient-heading ((,class (:foreground ,base-8 :weight bold))))
