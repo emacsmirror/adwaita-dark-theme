@@ -173,7 +173,7 @@
        ;; [True color | 256-compatible]
        (bg (if true-color-available-p "#1c1c1c" "gray11"))               ; #1c1c1c
        (bg-alt (if true-color-available-p "#242424" "gray14"))           ; #242424
-       (bg-osd (if true-color-available-p "#101010" "gray6"))            ; #0f0f0f
+       (bg-osd (if true-color-available-p "#060606" "gray3"))            ; #080808
        (base-0 (if true-color-available-p "#202020" "gray13"))           ; #212121
        (base-1 (if true-color-available-p "#262626" "gray15"))           ; #262626
        (base-2 (if true-color-available-p "#292929" "gray16"))           ; #292929
