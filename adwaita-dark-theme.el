@@ -244,6 +244,7 @@
    `(font-lock-doc-face ((,class (:foreground ,base-6))))
    `(font-lock-comment-face ((,class (:foreground ,base-5))))
    `(font-lock-comment-delimiter-face ((,class (:inherit font-lock-comment-face))))
+   `(font-lock-delimiter-face ((,class (:foreground ,base-7))))
    `(font-lock-constant-face ((,class (:foreground ,violet))))
    `(font-lock-variable-name-face ((,class ())))
    `(font-lock-function-name-face ((,class ())))
