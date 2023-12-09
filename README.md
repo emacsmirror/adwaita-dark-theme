@@ -1,4 +1,4 @@
-# adwaita-dark-theme
+# <img src=".repo-assets/icon.png" width=50> adwaita-dark-theme
 
 [![MELPA](https://melpa.org/packages/adwaita-dark-theme-badge.svg)](https://melpa.org/#/adwaita-dark-theme)
 [![MELPA Stable](https://stable.melpa.org/packages/adwaita-dark-theme-badge.svg)](https://stable.melpa.org/#/adwaita-dark-theme)
@@ -19,7 +19,7 @@
 
 ## Preview
 
-![Preview Image](https://gitlab.com/jessieh/adwaita-dark-theme/raw/assets/preview.png "Preview Image")
+![Preview Image](.repo-assets/preview.webp "Preview Image")
 
 ## Configuration
 
