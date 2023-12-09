@@ -26,6 +26,9 @@
 ;; To enable custom configuration for `neotree':
 ;; (eval-after-load 'neotree #'adwaita-dark-theme-neotree-configuration-enable)
 ;;
+;; To enable custom configuration for `eldoc-frame':
+;; (eval-after-load 'eldoc-frame #'adwaita-dark-theme-eldoc-frame-configuration-enable)
+;;
 ;; To enable custom fringe bitmaps for `diff-hl':
 ;; (eval-after-load 'diff-hl #'adwaita-dark-theme-diff-hl-fringe-bmp-enable)
 ;;
@@ -587,6 +590,10 @@
    `(eldoc-box-body ((,class (:inherit (tooltip variable-pitch-text)))))
    `(eldoc-box-border ((,class (:background ,base-3))))
 
+   ;; eldoc-frame
+   `(eldoc-frame-default ((,class (:inherit (tooltip variable-pitch-text)))))
+   `(eldoc-frame-border ((,class (:background ,base-3))))
+
    ;; fic-mode
    `(fic-face ((,class (:foreground ,yellow :weight bold))))
 
@@ -1026,6 +1033,33 @@
   (advice-add #'neo-buffer--insert-root-entry :override #'adwaita-dark-theme--neotree-insert-root)
   (advice-add #'neo-buffer--insert-dir-entry :override #'adwaita-dark-theme--neotree-insert-dir)
   (advice-add #'neo-buffer--insert-file-entry :override #'adwaita-dark-theme--neotree-insert-file))
+
+;; -------------------------------------------------------------------------- ;;
+;;
+;; eldoc-frame configuration
+;;
+;; -------------------------------------------------------------------------- ;;
+
+;; ---------------------------------- ;;
+;; Setup function
+;; ---------------------------------- ;;
+
+;;;###autoload
+(defun adwaita-dark-theme-eldoc-frame-configuration-enable ()
+  "Enable custom adwaita-dark configuration for use with eldoc-frame."
+  (set-face-background 'eldoc-frame-default "#000000")
+  (dolist (parameter '((left-fringe . 12)
+                       (right-fringe . 12)
+                       (alpha-background . 80)))
+    (add-to-list 'eldoc-frame-parameters parameter))
+  (add-hook 'eldoc-frame-buffer-hook
+            (lambda ()
+              (setq-local line-spacing 0.25)
+              (goto-char (point-min))
+              (insert (propertize "\s\n" 'face '(:height 0.2)))
+              (goto-char (point-max))
+              (insert (propertize "\s\n" 'face '(:height 0.2))))
+            100))
 
 ;; -------------------------------------------------------------------------- ;;
 ;;
