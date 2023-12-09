@@ -1,11 +1,9 @@
 # <img src=".repo-assets/icon.png" width=50> adwaita-dark-theme
 
+A dark color scheme that aims to replicate the appearance and colors of GTK4 "libadwaita" applications.
+
 [![MELPA](https://melpa.org/packages/adwaita-dark-theme-badge.svg)](https://melpa.org/#/adwaita-dark-theme)
 [![MELPA Stable](https://stable.melpa.org/packages/adwaita-dark-theme-badge.svg)](https://stable.melpa.org/#/adwaita-dark-theme)
-
-## About
-
-`adwaita-dark-theme` is a dark color scheme that aims to replicate the appearance and colors of GTK4 "libadwaita" applications.
 
 ## Features
 
@@ -13,15 +11,21 @@
 
 * Automatic 256-color mode support
 
+* Configurable theme features
+
 * Custom fringe bitmaps for diff-hl, flycheck, and flymake
 
-* Lightweight with no dependencies
+* Lightweight, no dependencies
 
 ## Preview
 
 ![Preview Image](.repo-assets/preview.webp "Preview Image")
 
 ## Configuration
+
+To see all of the theme features that can be configured:
+
+`M-x customize-group adwaita-dark-theme`
 
 ### Custom Neotree Configuration
 
@@ -35,7 +39,7 @@ To replace default line continuation/line wrap fringe bitmaps:\
 To enable custom fringe bitmaps for [diff-hl](https://github.com/dgutov/diff-hl):\
 `(eval-after-load 'diff-hl #'adwaita-dark-theme-diff-hl-fringe-bmp-enable)`
 
-To enable custom fringe bitmaps for [flycheck](https://www.flycheck.org/en/latest/):\
+To enable custom fringe bitmaps for [flycheck](https://www.flycheck.org):\
 `(eval-after-load 'flycheck #'adwaita-dark-theme-flycheck-fringe-bmp-enable)`
 
 To enable custom fringe bitmaps for [flymake](https://www.emacswiki.org/emacs/FlyMake):\
