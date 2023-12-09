@@ -13,6 +13,8 @@ A dark color scheme that aims to replicate the appearance and colors of GTK4 "li
 
 * Configurable theme features
 
+* Custom configurations for neotree and eldoc-frame
+
 * Custom fringe bitmaps for diff-hl, flycheck, and flymake
 
 * Lightweight, no dependencies
@@ -30,6 +32,10 @@ To see all of the theme features that can be configured:
 ### Custom Neotree Configuration
 
 `(eval-after-load 'neotree #'adwaita-dark-theme-neotree-configuration-enable)`
+
+### Custom eldoc-frame Configuration
+
+`(eval-after-load 'eldoc-frame #'adwaita-dark-theme-eldoc-frame-configuration-enable)`
 
 ### Custom Fringe Bitmaps
 
