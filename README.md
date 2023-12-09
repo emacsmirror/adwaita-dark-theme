@@ -13,9 +13,14 @@ A dark color scheme that aims to replicate the appearance and colors of GTK4 "li
 
 * Configurable theme features
 
-* Custom configurations for neotree and eldoc-frame
+* Custom configurations for
+[neotree](https://github.com/jaypei/emacs-neotree)
+and [eldoc-frame](https://git.tty.dog/jessieh/eldoc-frame)
 
-* Custom fringe bitmaps for diff-hl, flycheck, and flymake
+* Custom fringe bitmaps for
+[diff-hl](https://github.com/dgutov/diff-hl),
+[flycheck](https://www.flycheck.org),
+and [flymake](https://www.emacswiki.org/emacs/FlyMake)
 
 * Lightweight, no dependencies
 
@@ -29,26 +34,28 @@ To see all of the theme features that can be configured:
 
 `M-x customize-group adwaita-dark-theme`
 
-### Custom Neotree Configuration
+### Neotree Configuration
 
 `(eval-after-load 'neotree #'adwaita-dark-theme-neotree-configuration-enable)`
 
-### Custom eldoc-frame Configuration
+### eldoc-frame Configuration
 
 `(eval-after-load 'eldoc-frame #'adwaita-dark-theme-eldoc-frame-configuration-enable)`
 
-### Custom Fringe Bitmaps
+### Fringe Bitmaps
 
 To replace default line continuation/line wrap fringe bitmaps:\
 `(adwaita-dark-theme-arrow-fringe-bmp-enable)`
 
-To enable custom fringe bitmaps for [diff-hl](https://github.com/dgutov/diff-hl):\
+For specific packages:
+
+* diff-hl:\
 `(eval-after-load 'diff-hl #'adwaita-dark-theme-diff-hl-fringe-bmp-enable)`
 
-To enable custom fringe bitmaps for [flycheck](https://www.flycheck.org):\
+* flycheck:\
 `(eval-after-load 'flycheck #'adwaita-dark-theme-flycheck-fringe-bmp-enable)`
 
-To enable custom fringe bitmaps for [flymake](https://www.emacswiki.org/emacs/FlyMake):\
+* flymake:\
 `(eval-after-load 'flymake #'adwaita-dark-theme-flymake-fringe-bmp-enable)`
 
 ## Feedback
